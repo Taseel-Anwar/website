@@ -1771,3 +1771,258 @@ footer {
   .hero-stats { gap: 16px; }
   .stack-layer { grid-template-columns: 1fr; gap: 6px; }
 }
+
+/* ============ ANROK-STYLE CLIENT FEEDBACK ============ */
+.testimonials {
+  position: relative;
+  overflow: hidden;
+  padding: 108px 0 118px;
+  background:
+    radial-gradient(circle at 18% 46%, rgba(255, 218, 149, 0.38), transparent 24%),
+    radial-gradient(circle at 74% 58%, rgba(255, 155, 170, 0.24), transparent 28%),
+    radial-gradient(circle at 52% 18%, rgba(93, 135, 255, 0.16), transparent 26%),
+    linear-gradient(180deg, #fbfcff 0%, #fff7f1 56%, #f7fbff 100%);
+}
+
+.testimonials::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(15, 43, 102, 0.04) 1px, transparent 1px),
+    linear-gradient(rgba(15, 43, 102, 0.035) 1px, transparent 1px);
+  background-size: 74px 74px;
+  mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
+  pointer-events: none;
+}
+
+.testimonials .container {
+  position: relative;
+  z-index: 1;
+}
+
+.testimonials .section-label,
+.testimonials .section-title,
+.testimonials-kicker {
+  text-align: center;
+}
+
+.testimonials .section-title {
+  margin-bottom: 16px;
+  color: #17224a;
+}
+
+.testimonials-kicker {
+  max-width: 720px;
+  margin: 0 auto 56px;
+  color: #313a61;
+  font-size: 1.18rem;
+}
+
+.testimonials-showcase {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+.testimonials-showcase .testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+  transform: none !important;
+  transition: none;
+}
+
+.testimonials-showcase .testi-card {
+  position: relative;
+  min-width: 0;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 34px 34px 32px;
+  overflow: visible;
+  isolation: isolate;
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(59, 116, 255, 0.24), rgba(255, 198, 92, 0.18), rgba(255, 131, 153, 0.22)) border-box;
+  border: 1px solid transparent;
+  border-radius: 8px;
+  box-shadow: 0 24px 70px rgba(26, 42, 77, 0.08);
+  transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
+}
+
+.testimonials-showcase .testi-card::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background: linear-gradient(135deg, rgba(59, 116, 255, 0.58), rgba(255, 190, 96, 0.46), rgba(255, 117, 145, 0.52));
+  filter: blur(18px);
+  transform: translateY(10px) scale(0.97);
+  transition: opacity 0.32s ease, transform 0.32s ease;
+}
+
+.testimonials-showcase .testi-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 34px 90px rgba(26, 42, 77, 0.16);
+}
+
+.testimonials-showcase .testi-card:hover::before {
+  opacity: 0.8;
+  transform: translateY(14px) scale(1.02);
+}
+
+.testi-card-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  border-radius: inherit;
+  opacity: 0;
+  background: radial-gradient(circle at 30% 0%, rgba(255, 255, 255, 0.95), transparent 38%);
+  transition: opacity 0.32s ease;
+}
+
+.testi-card:hover .testi-card-glow {
+  opacity: 1;
+}
+
+.testi-photo {
+  width: 74px;
+  height: 74px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 28px;
+  background: #eef3fb;
+  box-shadow: 0 12px 28px rgba(15, 43, 102, 0.12);
+  transition: transform 0.32s ease, box-shadow 0.32s ease;
+}
+
+.testi-card:hover .testi-photo {
+  transform: scale(1.08) rotate(-2deg);
+  box-shadow: 0 18px 34px rgba(15, 43, 102, 0.18);
+}
+
+.testi-meta h3 {
+  margin: 0 0 4px;
+  color: #25264f;
+  font-family: var(--font-body);
+  font-size: clamp(1.35rem, 1.8vw, 1.95rem);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0;
+}
+
+.testi-meta span {
+  display: block;
+  color: #68708f;
+  font-size: 1rem;
+}
+
+.testi-quote {
+  margin: 28px 0 30px;
+  color: #33395f;
+  font-size: clamp(1rem, 1.18vw, 1.16rem);
+  font-style: italic;
+  line-height: 1.55;
+}
+
+.testimonials-showcase .testi-author {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.testimonials-showcase .testi-avatar {
+  width: 46px;
+  height: 46px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: #101838;
+  color: #ffffff;
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.testimonials-showcase .testi-author strong {
+  color: #1c1d2d;
+  font-size: 1.16rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.testi-card.accent-gold::before,
+.testi-card.accent-gold {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(255, 187, 76, 0.48), rgba(59, 116, 255, 0.18)) border-box;
+}
+
+.testi-card.accent-rose::before,
+.testi-card.accent-rose {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(255, 117, 145, 0.42), rgba(111, 142, 255, 0.2)) border-box;
+}
+
+.testi-card.accent-teal::before,
+.testi-card.accent-teal {
+  background:
+    linear-gradient(#ffffff, #ffffff) padding-box,
+    linear-gradient(135deg, rgba(28, 184, 166, 0.34), rgba(59, 116, 255, 0.24)) border-box;
+}
+
+.testimonials-showcase .upwork-badge {
+  margin-top: 34px;
+}
+
+@media (max-width: 1024px) {
+  .testimonials-showcase .testimonials-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .testimonials {
+    padding: 82px 0 90px;
+  }
+
+  .testimonials-showcase .testimonials-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .testimonials-showcase .testi-card {
+    min-height: auto;
+    padding: 28px 24px;
+  }
+
+  .testimonials-kicker {
+    margin-bottom: 34px;
+    font-size: 1rem;
+  }
+}
+
+.testimonials-showcase .accent-gold::before {
+  background: linear-gradient(135deg, rgba(255, 187, 76, 0.62), rgba(59, 116, 255, 0.3));
+}
+
+.testimonials-showcase .accent-rose::before {
+  background: linear-gradient(135deg, rgba(255, 117, 145, 0.58), rgba(111, 142, 255, 0.32));
+}
+
+.testimonials-showcase .accent-teal::before {
+  background: linear-gradient(135deg, rgba(28, 184, 166, 0.52), rgba(59, 116, 255, 0.36));
+}
+
+.testimonials-showcase .upwork-badge a {
+  font-size: 0;
+}
+
+.testimonials-showcase .upwork-badge a::before {
+  content: "View our Upwork profile ->";
+  font-size: 14px;
+}

@@ -657,7 +657,7 @@ function HomePage() {
         <div className="container">
           <SectionLabel>Client Reviews</SectionLabel>
           <h2 className="section-title">Words from those<br />we've <em>worked with</em></h2>
-          <TestimonialCarousel />
+          <TestimonialCards />
         </div>
       </section>
 
@@ -673,6 +673,46 @@ function HomePage() {
         </div>
       </section>
     </main>
+  );
+}
+
+function TestimonialCards() {
+  const cardDetails = [
+    { avatar: '/avatar-male.svg', company: 'Workflow Studio', role: 'Founder', accent: 'blue' },
+    { avatar: '/avatar-male.svg', company: 'ScaleOps', role: 'Operations Lead', accent: 'gold' },
+    { avatar: '/avatar-female.svg', company: 'Northline Digital', role: 'Business Owner', accent: 'rose' },
+    { avatar: '/avatar-male.svg', company: 'Vertex Systems', role: 'Product Manager', accent: 'teal' }
+  ];
+
+  return (
+    <div className="testimonials-showcase">
+      <p className="testimonials-kicker">Fast-moving founders get calm, clear delivery with Coderift.</p>
+      <div className="testimonials-grid">
+        {testimonials.slice(0, 3).map((item, index) => {
+          const detail = cardDetails[index % cardDetails.length];
+          return (
+            <div key={item.author} className={`testi-card accent-${detail.accent}`}>
+              <div className="testi-card-glow" aria-hidden="true" />
+              <img className="testi-photo" src={detail.avatar} alt={`${item.author} placeholder portrait`} loading="lazy" />
+              <div className="testi-meta">
+                <h3>{item.author}</h3>
+                <span>{detail.role}</span>
+              </div>
+              <p className="testi-quote">"{item.quote}"</p>
+              <div className="testi-author">
+                <div className="testi-avatar">{item.initials}</div>
+                <strong>Verified Upwork Client</strong>
+              </div>
+            </div>
+          );
+        })}
+      </div>
+      <div className="upwork-badge">
+        <a href="https://www.upwork.com/freelancers/~01af62dd25502a2237" target="_blank" rel="noreferrer">
+          View our Upwork profile â†’
+        </a>
+      </div>
+    </div>
   );
 }
 
