@@ -124,8 +124,28 @@ function loadToolIcons() {
 
 document.addEventListener('DOMContentLoaded', () => {
   loadToolIcons();
+  enhanceServiceCards();
   initTestimonialCarousel();
 });
+
+function enhanceServiceCards() {
+  const cards = document.querySelectorAll('.service-section .tool-card');
+  cards.forEach((card, index) => {
+    if (!card.querySelector('.tool-card-index')) {
+      const indexBadge = document.createElement('span');
+      indexBadge.className = 'tool-card-index';
+      indexBadge.textContent = String(index + 1).padStart(2, '0');
+      card.appendChild(indexBadge);
+    }
+
+    if (!card.querySelector('.tool-card-footer')) {
+      const footer = document.createElement('div');
+      footer.className = 'tool-card-footer';
+      footer.innerHTML = '<span>Modern stack</span><span class="tool-card-arrow">→</span>';
+      card.appendChild(footer);
+    }
+  });
+}
 
 function initTestimonialCarousel() {
   const section = document.querySelector('.testimonials');

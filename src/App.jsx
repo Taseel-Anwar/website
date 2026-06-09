@@ -5,6 +5,7 @@ import { BsCursorText } from 'react-icons/bs';
 import { SlBubble } from 'react-icons/sl';
 import { FaJava, FaMagic } from 'react-icons/fa';
 import { TbBrandGoogleBigQuery } from 'react-icons/tb';
+import PremiumLetsTalkSection from './PremiumLetsTalkSection';
 import {
   SiGithub,
   SiLinkedin,
@@ -498,7 +499,221 @@ function PageHero({ label, title, subtitle }) {
   );
 }
 
+function ServicesHeroVisual() {
+  return (
+    <div className="services-hero-visual" aria-hidden="true">
+      <div className="hero-visual-orb orb-one" />
+      <div className="hero-visual-orb orb-two" />
+      <svg viewBox="0 0 560 420" className="services-hero-svg" role="img" aria-label="Modern team illustration">
+        <defs>
+          <linearGradient id="deskGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ffb14d" />
+            <stop offset="100%" stopColor="#f06724" />
+          </linearGradient>
+          <linearGradient id="shirtGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ffd24a" />
+            <stop offset="100%" stopColor="#ff8f1f" />
+          </linearGradient>
+          <linearGradient id="screenGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#8eb3ff" />
+            <stop offset="100%" stopColor="#6289f7" />
+          </linearGradient>
+          <linearGradient id="skinGradient" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stopColor="#ffcfb0" />
+            <stop offset="100%" stopColor="#f79b72" />
+          </linearGradient>
+        </defs>
+
+        <ellipse cx="285" cy="372" rx="210" ry="22" fill="rgba(15,47,102,0.08)" />
+        <rect x="112" y="248" width="360" height="18" rx="9" fill="url(#deskGradient)" />
+        <rect x="128" y="266" width="16" height="104" rx="8" fill="#d66b3b" />
+        <rect x="440" y="266" width="16" height="104" rx="8" fill="#d66b3b" />
+        <rect x="246" y="256" width="116" height="66" rx="10" fill="url(#screenGradient)" />
+        <rect x="238" y="318" width="136" height="12" rx="6" fill="#8d5eeb" opacity="0.45" />
+        <rect x="162" y="248" width="24" height="34" rx="8" fill="#ffbb36" />
+        <rect x="162" y="240" width="26" height="6" rx="3" fill="#f7f0d0" />
+        <rect x="387" y="250" width="32" height="28" rx="8" fill="#ffb84a" />
+        <path d="M386 241c8-10 6-22-5-34 14 8 21 21 18 36" fill="none" stroke="#ffd49d" strokeWidth="5" strokeLinecap="round" />
+        <path d="M392 238c10-8 10-18 2-28" fill="none" stroke="#fff0c7" strokeWidth="4" strokeLinecap="round" />
+        <path d="M134 112c20-20 45-24 76-14 19 6 31 22 40 44 10 24 8 59 8 91h-96c-8-30-26-53-46-76-11-13-13-33 18-45z" fill="#6b4237" />
+        <circle cx="193" cy="96" r="24" fill="#7d4b40" />
+        <circle cx="192" cy="92" r="23" fill="url(#skinGradient)" />
+        <path d="M167 112c2-16 8-26 23-30 18-5 37 0 49 12 7 8 9 18 8 28-2 8-11 14-17 19-10 8-22 12-38 11-11-1-18-8-24-20-3-7-3-13-1-20z" fill="#5a2e29" opacity="0.95" />
+        <rect x="144" y="135" width="96" height="118" rx="16" fill="url(#shirtGradient)" />
+        <rect x="171" y="145" width="6" height="66" rx="3" fill="#5b2d28" opacity="0.75" />
+        <rect x="187" y="145" width="6" height="66" rx="3" fill="#5b2d28" opacity="0.75" />
+        <rect x="203" y="145" width="6" height="66" rx="3" fill="#5b2d28" opacity="0.75" />
+        <rect x="219" y="145" width="6" height="66" rx="3" fill="#5b2d28" opacity="0.75" />
+        <rect x="232" y="247" width="20" height="102" rx="10" fill="#4f5de0" />
+        <rect x="162" y="247" width="22" height="102" rx="10" fill="#4f5de0" />
+        <rect x="157" y="346" width="32" height="14" rx="7" fill="#ffb56a" />
+        <rect x="227" y="346" width="32" height="14" rx="7" fill="#ffb56a" />
+
+        <circle cx="455" cy="114" r="24" fill="url(#skinGradient)" />
+        <path d="M435 98c11-10 24-15 38-14 15 1 28 8 36 20 7 9 9 25 4 42-9 20-24 31-45 31-22-1-38-13-46-33-5-15-1-34 13-46z" fill="#4d2a23" />
+        <path d="M433 119c4-18 15-29 33-32 17-3 33 2 46 14 9 8 12 19 11 33-1 13-7 25-16 36-10 12-23 17-40 17-16 0-27-5-35-17-8-10-10-24-8-51z" fill="url(#skinGradient)" />
+        <rect x="412" y="136" width="90" height="126" rx="18" fill="#d6c2f7" opacity="0.92" />
+        <rect x="430" y="150" width="24" height="82" rx="10" fill="#4f5de0" />
+        <rect x="448" y="150" width="24" height="82" rx="10" fill="#4f5de0" />
+        <rect x="395" y="248" width="18" height="112" rx="9" fill="#d06b3d" />
+        <rect x="472" y="248" width="18" height="112" rx="9" fill="#d06b3d" />
+        <rect x="392" y="348" width="36" height="14" rx="7" fill="#ffb56a" />
+        <rect x="468" y="348" width="36" height="14" rx="7" fill="#ffb56a" />
+
+        <circle cx="500" cy="265" r="22" fill="#ffb43f" />
+        <rect x="486" y="252" width="28" height="44" rx="10" fill="#f2b14b" />
+        <path d="M492 248c0-10 4-18 12-24 10 8 14 16 14 24" fill="none" stroke="#4ac0b8" strokeWidth="6" strokeLinecap="round" />
+        <path d="M488 297h30" stroke="#4ac0b8" strokeWidth="4" strokeLinecap="round" />
+        <path d="M150 168c18 8 32 24 38 46" fill="none" stroke="#ffcf7d" strokeWidth="6" strokeLinecap="round" opacity="0.85" />
+      </svg>
+    </div>
+  );
+}
+
+function ServicesHero() {
+  return (
+    <section className="services-hero">
+      <div className="container services-hero-inner">
+        <div className="services-hero-copy">
+          <SectionLabel>Our Services</SectionLabel>
+          <h1>
+            Our <span>Services</span>
+          </h1>
+          <p>
+            Comprehensive technology services designed to accelerate your business growth. From custom software
+            development to full-stack solutions, we&apos;ve got you covered.
+          </p>
+          <div className="services-hero-actions">
+            <Link to="/contact" className="btn-primary btn-lg">
+              Talk to Us
+            </Link>
+          </div>
+        </div>
+        <ServicesHeroVisual />
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
+  const MAIL_TO = 'taseel.work@gmail.com';
+
+  const [selectedDateISO, setSelectedDateISO] = useState('');
+  const [selectedTime, setSelectedTime] = useState('');
+  const [note, setNote] = useState('');
+  const [sentAt, setSentAt] = useState('');
+
+  const timeSlots = ['10:00', '11:00', '13:00', '14:00', '15:00', '16:00'];
+
+  const dates = useMemo(() => {
+    const now = new Date();
+    const result = [];
+    for (let i = 0; i < 14; i += 1) {
+      const d = new Date(now);
+      d.setDate(now.getDate() + i);
+      const iso = d.toISOString().slice(0, 10);
+      const label = d.toLocaleDateString(undefined, { weekday: 'short', month: 'short', day: 'numeric' });
+      result.push({ iso, label });
+    }
+    return result;
+  }, []);
+
+  useEffect(() => {
+    if (!selectedDateISO && dates.length) {
+      setSelectedDateISO(dates[0].iso);
+      setSelectedTime(timeSlots[0]);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [dates]);
+
+  const selectedDateObj = selectedDateISO ? new Date(`${selectedDateISO}T00:00:00`) : null;
+  const selectedDateLabel = selectedDateObj
+    ? selectedDateObj.toLocaleDateString(undefined, { weekday: 'long', month: 'long', day: 'numeric', year: 'numeric' })
+    : '';
+
+  const handleSend = () => {
+    const datePart = selectedDateISO || '';
+    const timePart = selectedTime || '';
+    const subject = `Let\'s Talk — ${datePart} ${timePart}`;
+    const body = [
+      `Hi Coderift,`,
+      `I'd like to schedule a discussion for:`,
+      `Date: ${selectedDateLabel || datePart}`,
+      `Time: ${timePart || '-'}`,
+      ``,
+      `Quick note:`,
+      note ? note : '-',
+      ``,
+      `My name:`,
+      `-`,
+      ``,
+      `Sent from your website calendar.`
+    ].join('\n');
+
+    setSentAt(new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }));
+    window.location.href = `mailto:${encodeURIComponent(MAIL_TO)}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
+  const canvasRef = useRef(null);
+
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    if (!canvas) return;
+
+    const ctx = canvas.getContext('2d');
+    if (!ctx) return;
+
+    const { width, height } = canvas.getBoundingClientRect();
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = Math.floor(width * dpr);
+    canvas.height = Math.floor(height * dpr);
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    // Background
+    ctx.clearRect(0, 0, width, height);
+    const grad = ctx.createLinearGradient(0, 0, width, height);
+    grad.addColorStop(0, 'rgba(15,43,102,0.14)');
+    grad.addColorStop(1, 'rgba(59,116,255,0.06)');
+    ctx.fillStyle = grad;
+    ctx.fillRect(0, 0, width, height);
+
+    // Silhouette (simple “man”)
+    const cx = width * 0.5;
+    const headR = Math.min(width, height) * 0.12;
+    const headY = height * 0.30;
+    ctx.fillStyle = 'rgba(7,29,61,0.78)';
+    ctx.beginPath();
+    ctx.arc(cx, headY, headR, 0, Math.PI * 2);
+    ctx.fill();
+
+    // Body
+    const bodyTop = headY + headR * 0.9;
+    const bodyBottom = height * 0.82;
+    const bodyW = Math.min(width, height) * 0.22;
+    ctx.fillStyle = 'rgba(15,43,102,0.75)';
+    ctx.beginPath();
+    ctx.roundRect(cx - bodyW / 2, bodyTop, bodyW, bodyBottom - bodyTop, Math.min(width, height) * 0.08);
+    ctx.fill();
+
+    // Arms
+    ctx.strokeStyle = 'rgba(15,43,102,0.62)';
+    ctx.lineWidth = Math.max(2, Math.floor(Math.min(width, height) * 0.03));
+    ctx.lineCap = 'round';
+    ctx.beginPath();
+    ctx.moveTo(cx - bodyW / 2, bodyTop + (bodyBottom - bodyTop) * 0.25);
+    ctx.lineTo(cx - bodyW * 0.75, bodyTop + (bodyBottom - bodyTop) * 0.38);
+    ctx.moveTo(cx + bodyW / 2, bodyTop + (bodyBottom - bodyTop) * 0.25);
+    ctx.lineTo(cx + bodyW * 0.75, bodyTop + (bodyBottom - bodyTop) * 0.38);
+    ctx.stroke();
+
+    // Glow ring
+    ctx.beginPath();
+    ctx.arc(cx, headY + headR * 0.2, headR * 2.15, 0, Math.PI * 2);
+    ctx.strokeStyle = 'rgba(59,116,255,0.18)';
+    ctx.lineWidth = 2;
+    ctx.stroke();
+  }, []);
+
   return (
     <main>
       <section className="hero">
@@ -601,24 +816,28 @@ function HomePage() {
         </div>
       </section>
 
-      <section className="services-preview">
+      <section className="what-we-do-masonry">
+
         <div className="container">
-          <SectionLabel>What We Do</SectionLabel>
-          <h2 className="section-title">Four pillars of<br />modern delivery</h2>
-          <div className="services-grid">
-            {serviceCards.map((service) => (
-              <Link key={service.title} to={service.link} className="service-card">
-                <div className="service-icon">
-                  <TechLogo slug={service.slug} label={service.title} />
-                </div>
-                <h3>{service.title}</h3>
-                <p>{service.description}</p>
-                <span className="service-arrow">→</span>
-              </Link>
+          <div className="what-we-do-head">
+            <SectionLabel>What We Do</SectionLabel>
+            <h2 className="what-we-do-title">
+              Premium delivery, delivered in <span className="what-we-do-title-em">real outcomes</span>
+            </h2>
+            <p className="what-we-do-sub">
+              4.9/5 client rating • 10+ projects/apps delivered • Verified Upwork clients — built with modern no-code, AI automation,
+              and scalable engineering.
+            </p>
+          </div>
+
+          <div className="masonry-grid" role="list">
+            {whatWeDoCards.map((card) => (
+              <WhatWeDoCard key={card.id} card={card} />
             ))}
           </div>
         </div>
       </section>
+
 
       <section className="why-section">
         <div className="container">
@@ -661,6 +880,8 @@ function HomePage() {
         </div>
       </section>
 
+      <PremiumLetsTalkSection />
+
       <section className="cta-banner">
         <div className="container">
           <div className="cta-inner">
@@ -675,6 +896,7 @@ function HomePage() {
     </main>
   );
 }
+
 
 function TestimonialCards() {
   const cardDetails = [
@@ -777,14 +999,220 @@ function TestimonialCarousel() {
   );
 }
 
+const whatWeDoCards = [
+  {
+    id: 'card-1',
+    to: '/portfolio',
+    category: 'AI Automation',
+    meta: 'Connected flows',
+    title: 'AI Automation systems that run the routine work for you',
+    description:
+      'Triggers, agents, and smart handoffs that keep operations moving while your team focuses on higher-value work.',
+    sizeClass: 'size-xl',
+    offsetClass: 'offset-a',
+    visualType: 'automation'
+  },
+  {
+    id: 'card-2',
+    to: '/services#nocode',
+    category: 'Bubble Development',
+    meta: 'Floating screens',
+    title: 'Bubble Development for fast, flexible product launches',
+    description:
+      'Wireframes, app views, and interactive product screens arranged to feel polished from the first click.',
+    sizeClass: 'size-lg',
+    offsetClass: 'offset-b',
+    visualType: 'bubble'
+  },
+  {
+    id: 'card-3',
+    to: '/services#automation',
+    category: 'Automation',
+    meta: 'Animated links',
+    title: 'Automation pipelines with visible logic and movement',
+    description:
+      'Connected nodes, flowing lines, and smart routing that make the workflow easy to understand at a glance.',
+    sizeClass: 'size-md',
+    offsetClass: 'offset-c',
+    visualType: 'flow'
+  },
+  {
+    id: 'card-4',
+    to: '/services#data',
+    category: 'Webflow',
+    meta: 'Browser design',
+    title: 'Webflow builds with structure, grids, and premium motion',
+    description:
+      'A browser-window visual with design grids, layout blocks, and production-ready presentation energy.',
+    sizeClass: 'size-md',
+    offsetClass: 'offset-d',
+    visualType: 'webflow'
+  },
+  {
+    id: 'card-5',
+    to: '/portfolio',
+    category: 'Full-Stack',
+    meta: 'Frontend to backend',
+    title: 'Full-Stack applications with clear API connections',
+    description:
+      'Front-end interfaces, backend services, and data routes tied together through a strong visual system.',
+    sizeClass: 'size-lg',
+    offsetClass: 'offset-e',
+    visualType: 'stack'
+  },
+  {
+    id: 'card-6',
+    to: '/services#automation',
+    category: 'Startup MVP',
+    meta: 'Launch ready',
+    title: 'Startup MVPs designed around launch momentum',
+    description:
+      'A product-journey visual with a rocket launch feel and a roadmap that signals progress from idea to release.',
+    sizeClass: 'size-md',
+    offsetClass: 'offset-f',
+    visualType: 'mvp'
+  }
+];
+
+function ServiceVisual({ type }) {
+  if (type === 'automation') {
+    return (
+      <div className="masonry-visual-shell visual-automation">
+        <span className="visual-orb orb-a" />
+        <span className="visual-orb orb-b" />
+        <svg viewBox="0 0 220 160" aria-hidden="true" className="visual-network">
+          <path className="visual-line line-1" d="M26 92 C64 92, 72 58, 110 58 S156 92, 194 92" />
+          <path className="visual-line line-2" d="M26 122 C68 122, 80 90, 110 90 S154 122, 194 122" />
+        </svg>
+        <div className="visual-node node-a">AI</div>
+        <div className="visual-node node-b">Flow</div>
+        <div className="visual-node node-c">Ops</div>
+      </div>
+    );
+  }
+
+  if (type === 'bubble') {
+    return (
+      <div className="masonry-visual-shell visual-bubble">
+        <div className="visual-screen screen-large">
+          <div className="screen-top" />
+          <div className="screen-body">
+            <span />
+            <span />
+            <span />
+          </div>
+        </div>
+        <div className="visual-screen screen-small screen-a" />
+        <div className="visual-screen screen-small screen-b" />
+      </div>
+    );
+  }
+
+  if (type === 'flow') {
+    return (
+      <div className="masonry-visual-shell visual-flow">
+        <div className="visual-flow-core">n8n</div>
+        <div className="visual-flow-arm arm-left" />
+        <div className="visual-flow-arm arm-right" />
+        <div className="visual-flow-node flow-a">Trigger</div>
+        <div className="visual-flow-node flow-b">Route</div>
+        <div className="visual-flow-node flow-c">Deliver</div>
+      </div>
+    );
+  }
+
+  if (type === 'webflow') {
+    return (
+      <div className="masonry-visual-shell visual-webflow">
+        <div className="browser-window">
+          <div className="browser-bar">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div className="browser-grid">
+            <span className="grid-line grid-h" />
+            <span className="grid-line grid-v" />
+            <span className="grid-card card-a" />
+            <span className="grid-card card-b" />
+            <span className="grid-card card-c" />
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  if (type === 'stack') {
+    return (
+      <div className="masonry-visual-shell visual-stack">
+        <div className="stack-side stack-front">UI</div>
+        <div className="stack-side stack-back">API</div>
+        <div className="stack-connector connector-a" />
+        <div className="stack-connector connector-b" />
+        <div className="stack-pulse" />
+      </div>
+    );
+  }
+
+  return (
+    <div className="masonry-visual-shell visual-mvp">
+      <div className="mvp-rocket">🚀</div>
+      <div className="mvp-path" />
+      <div className="mvp-step step-a">Idea</div>
+      <div className="mvp-step step-b">Build</div>
+      <div className="mvp-step step-c">Launch</div>
+    </div>
+  );
+}
+
+function WhatWeDoCard({ card }) {
+  const [pointer, setPointer] = useState({ x: 50, y: 50 });
+
+  const handlePointerMove = (event) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+    const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+    setPointer({ x: Math.max(0, Math.min(100, x)), y: Math.max(0, Math.min(100, y)) });
+  };
+
+  return (
+    <Link
+      to={card.to}
+      className={`masonry-card ${card.sizeClass} ${card.offsetClass} fade-up`}
+      role="listitem"
+      aria-label={`${card.category}: ${card.title}`}
+      onMouseMove={handlePointerMove}
+      onMouseLeave={() => setPointer({ x: 50, y: 50 })}
+      style={{ '--pointer-x': `${pointer.x}%`, '--pointer-y': `${pointer.y}%` }}
+    >
+      <div className="masonry-card-media" aria-hidden="true">
+        <ServiceVisual type={card.visualType} />
+      </div>
+
+      <div className="masonry-card-content">
+        <div className="masonry-card-top">
+          <span className="masonry-card-category">{card.category}</span>
+          <span className="masonry-card-meta">{card.meta}</span>
+        </div>
+
+        <h3 className="masonry-card-title">{card.title}</h3>
+        <p className="masonry-card-desc">{card.description}</p>
+
+        <div className="masonry-card-cta" aria-hidden="true">
+          <span>View service</span>
+          <span className="masonry-card-arrow">→</span>
+        </div>
+      </div>
+    </Link>
+  );
+}
+
+
 function ServicesPage() {
   return (
     <main>
-      <PageHero
-        label="Our Services"
-        title="Everything your business needs to move fast."
-        subtitle="From zero-code MVPs to enterprise software, we build with what works best for your problem, timeline, and budget."
-      />
+      <ServicesHero />
+
       {servicesSections.map((section) => (
         <section key={section.id} className={`service-section${section.accent ? ' alt-bg' : ''}`} id={section.id}>
           <div className="container">
@@ -798,13 +1226,18 @@ function ServicesPage() {
                 </div>
               </div>
               <div className="tools-grid">
-                {section.tools.map((tool) => (
+                {section.tools.map((tool, index) => (
                   <div key={tool.name} className="tool-card">
+                    <span className="tool-card-index">0{index + 1}</span>
                     <div className="tool-card-icon">
                       <TechLogo slug={tool.slug} label={tool.name} />
                     </div>
                     <div className="tool-name">{tool.name}</div>
                     <p>{tool.description || 'Modern products built for your business, with the right technology at every step.'}</p>
+                    <div className="tool-card-footer">
+                      <span>Modern stack</span>
+                      <span className="tool-card-arrow">→</span>
+                    </div>
                   </div>
                 ))}
               </div>
