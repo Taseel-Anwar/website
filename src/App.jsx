@@ -595,6 +595,224 @@ function ServicesHero() {
   );
 }
 
+const marqueeLogos = [
+  { name: 'Bubble.io', letter: 'B' },
+  { name: 'Webflow',   letter: 'W' },
+  { name: 'Retool',    letter: 'R' },
+  { name: 'MongoDB',   letter: 'M' },
+  { name: 'React',     letter: 'R' },
+  { name: 'Node.js',   letter: 'N' },
+  { name: 'Zapier',    letter: 'Z' },
+  { name: 'Make',      letter: 'M' },
+];
+
+function DarkHero() {
+  const videoRef   = useRef(null);
+  const rafRef     = useRef(null);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  // ── Video fade loop ──
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video) return;
+    let cancelled = false;
+
+    function fadeIn() {
+      if (cancelled) return;
+      const duration = 500;
+      const start = performance.now();
+      function tick(now) {
+        if (cancelled) return;
+        const t = Math.min((now - start) / duration, 1);
+        video.style.opacity = t;
+        if (t < 1) rafRef.current = requestAnimationFrame(tick);
+      }
+      rafRef.current = requestAnimationFrame(tick);
+    }
+
+    function onTimeUpdate() {
+      if (!video.duration) return;
+      const remaining = video.duration - video.currentTime;
+      if (remaining <= 0.5) {
+        const duration = 500;
+        const startOpacity = parseFloat(video.style.opacity) || 1;
+        const fadeStart = performance.now();
+        cancelAnimationFrame(rafRef.current);
+        function fadeTick(now) {
+          if (cancelled) return;
+          const t = Math.min((now - fadeStart) / duration, 1);
+          video.style.opacity = startOpacity * (1 - t);
+          if (t < 1) rafRef.current = requestAnimationFrame(fadeTick);
+        }
+        rafRef.current = requestAnimationFrame(fadeTick);
+      }
+    }
+
+    function onEnded() {
+      if (cancelled) return;
+      video.style.opacity = 0;
+      setTimeout(() => {
+        if (cancelled) return;
+        video.currentTime = 0;
+        video.play().then(fadeIn).catch(() => {});
+      }, 100);
+    }
+
+    video.style.opacity = 0;
+    video.play().then(fadeIn).catch(() => {});
+    video.addEventListener('timeupdate', onTimeUpdate);
+    video.addEventListener('ended', onEnded);
+    return () => {
+      cancelled = true;
+      cancelAnimationFrame(rafRef.current);
+      video.removeEventListener('timeupdate', onTimeUpdate);
+      video.removeEventListener('ended', onEnded);
+    };
+  }, []);
+
+  // ── Parallax + navbar scroll state ──
+  useEffect(() => {
+    function onScroll() {
+      const y = window.scrollY;
+      setScrolled(y > 40);
+      if (videoRef.current) {
+        // Move video at 40% of scroll speed — creates depth
+        videoRef.current.style.transform = `translateY(${y * 0.4}px)`;
+      }
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  return (
+    <section className="dh-section">
+      {/* Background video — parallax layer */}
+      <div className="dh-video-wrap">
+        <video
+          ref={videoRef}
+          className="dh-video"
+          src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260328_065045_c44942da-53c6-4804-b734-f9e07fc22e08.mp4"
+          muted
+          playsInline
+          preload="auto"
+        />
+      </div>
+
+      {/* Content layer */}
+      <div className="dh-content-wrap">
+
+        {/* ── Navbar — merged into hero ── */}
+        <nav className={`dh-nav${scrolled ? ' dh-nav-scrolled' : ''}`}>
+          <div className="dh-nav-left">
+            <img src="/favicon.svg" alt="Coderift" className="dh-nav-logo-img" />
+            <span className="dh-nav-logo-name">Coderift</span>
+          </div>
+          <div className="dh-nav-center">
+            {navLinks.map(link => (
+              <Link
+                key={link.to}
+                to={link.to}
+                className="dh-nav-link"
+                onClick={() => setMenuOpen(false)}
+              >{link.label}</Link>
+            ))}
+          </div>
+          <div className="dh-nav-right">
+            <Link to="/contact" className="dh-nav-cta">Start a Project</Link>
+            <button
+              className="dh-hamburger"
+              aria-label="Open menu"
+              aria-expanded={menuOpen}
+              onClick={() => setMenuOpen(o => !o)}
+            >☰</button>
+          </div>
+        </nav>
+        <div className="dh-nav-divider" />
+
+        {/* Mobile menu */}
+        {menuOpen && (
+          <div className="dh-mobile-menu">
+            {navLinks.map(link => (
+              <Link key={link.to} to={link.to} onClick={() => setMenuOpen(false)}>
+                {link.label}
+              </Link>
+            ))}
+            <Link to="/contact" className="dh-nav-cta" onClick={() => setMenuOpen(false)}>
+              Start a Project
+            </Link>
+          </div>
+        )}
+
+        {/* ── Hero ── */}
+        <div className="dh-hero-area">
+          <div className="dh-blur-blob" aria-hidden="true" />
+
+          <div className="dh-hero-inner">
+            {/* Left */}
+            <div className="dh-left">
+              <h1 className="dh-headline">
+                Rift Through<br />
+                the{' '}
+                <span className="dh-headline-em">Ordinary.</span>
+              </h1>
+              <p className="dh-subtitle">
+                We build fast, efficient digital products using the modern toolset — no-code, AI automation, and scalable web platforms. Your idea, live before competitors wake up.
+              </p>
+              <div className="dh-ctas">
+                <Link to="/portfolio" className="dh-cta-filled">View Our Work</Link>
+                <Link to="/services"  className="dh-cta-outline">Explore Services</Link>
+              </div>
+            </div>
+
+            {/* Right — terminal */}
+            <div className="dh-right">
+              <div className="dh-terminal">
+                <div className="dh-term-bar">
+                  <span className="dh-dot dh-dot-r" />
+                  <span className="dh-dot dh-dot-y" />
+                  <span className="dh-dot dh-dot-g" />
+                  <span className="dh-term-title">coderift.sh</span>
+                </div>
+                <div className="dh-term-body">
+                  <div className="dh-term-line dh-term-cmd">$ init project --stack modern</div>
+                  <div className="dh-term-line dh-term-out">✓ No-code layer initialized</div>
+                  <div className="dh-term-line dh-term-out">✓ AI automation connected</div>
+                  <div className="dh-term-line dh-term-out">✓ Vibe coding activated</div>
+                  <div className="dh-term-line dh-term-out">✓ Full-stack ready</div>
+                  <div className="dh-term-line dh-term-cmd">$ deploy --fast --efficient</div>
+                  <div className="dh-term-line dh-term-out">🚀 Product live. Budget saved.</div>
+                  <span className="dh-term-cursor">_</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Marquee ── */}
+        <div className="dh-marquee-wrap">
+          <div className="dh-marquee-inner">
+            <p className="dh-marquee-label">Relied on by brands /<br />across the globe</p>
+            <div className="dh-marquee-track-wrap">
+              <div className="dh-marquee-track">
+                {[...marqueeLogos, ...marqueeLogos].map((logo, i) => (
+                  <div key={i} className="dh-marquee-item">
+                    <div className="dh-marquee-icon liquid-glass">
+                      <span>{logo.letter}</span>
+                    </div>
+                    <span className="dh-marquee-name">{logo.name}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  );
+}
+
 function HomePage() {
   const MAIL_TO = 'taseel.work@gmail.com';
 
@@ -716,74 +934,7 @@ function HomePage() {
 
   return (
     <main>
-      <section className="hero">
-        <div className="hero-bg">
-          <div className="grid-overlay" />
-          <div className="orb orb1" />
-          <div className="orb orb2" />
-        </div>
-        <div className="hero-content">
-          <div className="hero-badge">
-            <span className="dot" /> Modern Tech Solutions
-          </div>
-          <h1 className="hero-title">
-            Rift Through
-            <br />the <em>Ordinary.</em>
-          </h1>
-          <p className="hero-sub">
-            We build fast, efficient digital products using the modern toolset — no-code, AI automation, and scalable web
-            platforms. Your idea, live before competitors wake up.
-          </p>
-          <div className="hero-actions">
-            <Link to="/portfolio" className="btn-primary">
-              View Our Work
-            </Link>
-            <Link to="/services" className="btn-ghost">
-              Explore Services
-            </Link>
-          </div>
-          <div className="hero-stats">
-            <div className="stat">
-              <span className="stat-num">4+</span>
-              <span className="stat-label">Case Studies</span>
-            </div>
-            <div className="stat-div" />
-            <div className="stat">
-              <span className="stat-num">No-Code</span>
-              <span className="stat-label">to Full-Stack</span>
-            </div>
-            <div className="stat-div" />
-            <div className="stat">
-              <span className="stat-num">10×</span>
-              <span className="stat-label">Faster Delivery</span>
-            </div>
-          </div>
-        </div>
-        <div className="hero-visual">
-          <div className="terminal">
-            <div className="terminal-bar">
-              <span className="tb tb1" />
-              <span className="tb tb2" />
-              <span className="tb tb3" />
-              <span className="terminal-title">coderift.sh</span>
-            </div>
-            <div className="terminal-body">
-              <div className="t-line">
-                <span className="t-prompt">$</span> <span className="t-cmd typing">init project --stack modern</span>
-              </div>
-              <div className="t-line t-out">✓ No-code layer initialized</div>
-              <div className="t-line t-out">✓ AI automation connected</div>
-              <div className="t-line t-out">✓ Vibe coding activated</div>
-              <div className="t-line t-out">✓ Full-stack ready</div>
-              <div className="t-line">
-                <span className="t-prompt">$</span> <span className="t-cmd">deploy --fast --efficient</span>
-              </div>
-              <div className="t-line t-success">🚀 Product live. Budget saved.</div>
-              <div className="t-cursor">_</div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <DarkHero />
 
       <section className="stack-showcase">
         <div className="container stack-cluster-grid">
@@ -1550,58 +1701,155 @@ function ContactPage() {
 }
 
 function Footer() {
+  const [, setFit] = useState(0);
+
+  useEffect(() => {
+    function fitWatermark() {
+      const svg = document.getElementById('watermarkSvg');
+      const text = document.getElementById('watermarkText');
+      if (!svg || !text) return;
+      try {
+        const bbox = text.getBBox();
+        svg.setAttribute('viewBox', `${bbox.x} ${bbox.y} ${bbox.width} ${bbox.height}`);
+      } catch (e) {}
+      setFit(f => f + 1);
+    }
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(fitWatermark);
+    } else {
+      window.addEventListener('load', fitWatermark);
+    }
+    window.addEventListener('resize', fitWatermark);
+    return () => window.removeEventListener('resize', fitWatermark);
+  }, []);
+
   return (
-    <footer>
-      <div className="container">
-        <div className="footer-grid">
-          <div className="footer-brand">
-            <Link to="/" className="nav-logo">
-              <img src="/favicon.svg" alt="Coderift" width="28" height="28" />
-              <span>Coderift</span>
-            </Link>
-            <p>Modern tech solutions for businesses that refuse to move slow.</p>
-            <div className="footer-socials">
-              {socialLinks.map(({ label, href }) => (
-                <a key={label} href={href} target="_blank" rel="noreferrer">
-                  {label}
-                </a>
-              ))}
+    <section className="footer-section">
+      <div className="footer-wrapper">
+
+        {/* LEFT CARD */}
+        <div className="footer-left">
+          <video className="footer-left-video" autoPlay muted loop playsInline preload="auto">
+            <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_104800_bc43ae09-f494-43e3-97d7-2f8c1692cfd7.mp4" type="video/mp4" />
+          </video>
+          <div className="footer-logo">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="footer-logo-svg">
+              <defs>
+                <linearGradient id="flg1" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stopColor="#1E90FF"/>
+                  <stop offset="100%" stopColor="#0057D9"/>
+                </linearGradient>
+                <mask id="flm1">
+                  <rect width="64" height="64" fill="white"/>
+                  <line x1="28" y1="12" x2="36" y2="50" stroke="black" strokeWidth="3"/>
+                </mask>
+                <mask id="flm2">
+                  <rect width="64" height="64" fill="white"/>
+                  <line x1="28" y1="12" x2="36" y2="50" stroke="black" strokeWidth="3"/>
+                </mask>
+              </defs>
+              <path d="M16 44 L22 18 L34 28 L28 46 Z" fill="url(#flg1)" mask="url(#flm1)"/>
+              <path d="M34 18 L52 18 L46 46 L30 36 Z" fill="#0A4DCC" mask="url(#flm2)"/>
+            </svg>
+            <span className="footer-logo-name">Coderift</span>
+          </div>
+          <div className="footer-tagline-container">
+            <p className="footer-tagline">
+              Modern tech solutions,<br /><span>built for businesses that move fast.</span>
+            </p>
+          </div>
+          <div className="footer-social-row">
+            <span className="footer-social-label">Stay in touch!</span>
+            <div className="footer-social-icons">
+              <a href="https://github.com/Taseel-Anwar" target="_blank" rel="noreferrer" className="social-icon" aria-label="GitHub">
+                <SiGithub size={15} color="white" />
+              </a>
+              <a href="https://www.linkedin.com/in/taseel" target="_blank" rel="noreferrer" className="social-icon" aria-label="LinkedIn">
+                <SiLinkedin size={15} color="white" />
+              </a>
+              <a href="https://www.upwork.com/freelancers/~01af62dd25502a2237" target="_blank" rel="noreferrer" className="social-icon" aria-label="Upwork">
+                <SiUpwork size={15} color="white" />
+              </a>
+              <a href="mailto:taseel.work@gmail.com" className="social-icon" aria-label="Email">
+                <FiMail size={15} color="white" />
+              </a>
             </div>
           </div>
-          <div className="footer-links">
-            <h4>Navigation</h4>
-            <Link to="/services">Services</Link>
-            <Link to="/portfolio">Portfolio</Link>
-            <Link to="/about">About</Link>
-            <Link to="/contact">Contact</Link>
+        </div>
+
+        {/* RIGHT CARD */}
+        <div className="footer-right">
+          <div className="footer-lucky-graphic">
+            <div className="lucky-cube">
+              <img src="/favicon.svg" alt="Coderift" className="lucky-cube-favicon" />
+            </div>
+            <div className="lucky-text-row">
+              <svg className="lucky-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path d="M3 20 C 6 14, 10 9, 18 5" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 5 L 12 5" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                <path d="M18 5 L 18 11" stroke="currentColor" fill="none" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+              </svg>
+              <span className="lucky-text">Feeling lucky?</span>
+            </div>
           </div>
-          <div className="footer-links">
-            <h4>Services</h4>
-            <a href="/services#nocode">No-Code</a>
-            <a href="/services#automation">Automation</a>
-            <a href="/services#code">Development</a>
-            <a href="/services#data">Data & AI</a>
+
+          <div className="footer-right-top">
+            <div className="footer-nav-cols">
+              <div className="footer-col">
+                <div className="footer-col-title">Navigation</div>
+                <Link to="/services">Services</Link>
+                <Link to="/portfolio">Portfolio</Link>
+                <Link to="/about">About</Link>
+                <Link to="/contact">Contact</Link>
+              </div>
+              <div className="footer-col">
+                <div className="footer-col-title">Services</div>
+                <a href="/services#nocode">No-Code</a>
+                <a href="/services#automation">Automation</a>
+                <a href="/services#code">Development</a>
+                <a href="/services#data">Data &amp; AI</a>
+              </div>
+            </div>
           </div>
-          <div className="footer-contact">
-            <h4>Contact</h4>
-            <a href="mailto:taseel.work@gmail.com">taseel.work@gmail.com</a>
-            <a href="https://wa.me/923214308899" target="_blank" rel="noreferrer">
-              WhatsApp: +92 321 430 8899
-            </a>
-            <span>Lahore, Pakistan</span>
+
+          <div className="footer-bottom">
+            <span className="footer-copyright">&copy; {new Date().getFullYear()} Coderift. All rights reserved.</span>
+            <div className="footer-cta-mini">
+              <h4>Move fast.<br /><strong>Build with Coderift.</strong></h4>
+              <div className="footer-subscribe-row">
+                <input type="email" placeholder="Enter email address" aria-label="Email address" />
+                <button type="button" onClick={() => { window.location.href = 'mailto:taseel.work@gmail.com'; }}>
+                  Get in touch
+                </button>
+              </div>
+            </div>
           </div>
         </div>
-        <div className="footer-bottom">
-          <span>© 2025 Coderift. All rights reserved.</span>
-          <span>Rift through the ordinary.</span>
-        </div>
+
       </div>
-    </footer>
+
+      {/* Watermark */}
+      <div className="footer-watermark" aria-hidden="true">
+        <svg id="watermarkSvg" viewBox="62 95 876 175" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+          <defs>
+            <linearGradient id="wmGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+              <stop offset="0%"   stopColor="rgba(99,102,241,0)" />
+              <stop offset="20%"  stopColor="rgba(99,102,241,0.09)" />
+              <stop offset="50%"  stopColor="rgba(168,85,247,0.12)" />
+              <stop offset="80%"  stopColor="rgba(99,102,241,0.09)" />
+              <stop offset="100%" stopColor="rgba(99,102,241,0)" />
+            </linearGradient>
+          </defs>
+          <text id="watermarkText" x="500" y="240" textAnchor="middle" fontSize="320" fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="600" fontStyle="italic" letterSpacing="-0.02em" fill="url(#wmGrad)">Coderift</text>
+        </svg>
+      </div>
+    </section>
   );
 }
 
 export default function App() {
   const location = useLocation();
+  const isHome = location.pathname === '/';
   useScrollTop();
 
   useEffect(() => {
@@ -1623,7 +1871,7 @@ export default function App() {
 
   return (
     <div className="app-shell">
-      <Header />
+      {!isHome && <Header />}
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/services" element={<ServicesPage />} />
