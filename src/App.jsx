@@ -441,7 +441,7 @@ function Header() {
     <>
       <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
         <Link to="/" className="nav-logo">
-          <img src="/favicon.svg" alt="Coderift" width="32" height="32" />
+          <img src="/image (1).svg" alt="Coderift" width="32" height="32" />
           <span>Coderift</span>
         </Link>
 
@@ -705,7 +705,7 @@ function DarkHero() {
         {/* ── Navbar — merged into hero ── */}
         <nav className={`dh-nav${scrolled ? ' dh-nav-scrolled' : ''}`}>
           <div className="dh-nav-left">
-            <img src="/favicon.svg" alt="Coderift" className="dh-nav-logo-img" />
+            <img src="/image (1).svg" alt="Coderift" className="dh-nav-logo-img" />
             <span className="dh-nav-logo-name">Coderift</span>
           </div>
           <div className="dh-nav-center">
@@ -1307,8 +1307,23 @@ function ServiceVisual({ type }) {
 
   return (
     <div className="masonry-visual-shell visual-mvp">
+      <div className="mvp-glow" aria-hidden="true" />
+      <svg className="mvp-arc-svg" viewBox="0 0 260 180" aria-hidden="true" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="mvpGrad" x1="0%" y1="100%" x2="100%" y2="0%">
+            <stop offset="0%" stopColor="rgba(99,102,241,0.3)" />
+            <stop offset="50%" stopColor="rgba(99,102,241,0.9)" />
+            <stop offset="100%" stopColor="rgba(168,85,247,0.9)" />
+          </linearGradient>
+        </defs>
+        <path className="mvp-arc-path" d="M 30 155 Q 80 60, 200 22" />
+        {/* Step marker dots */}
+        <circle cx="30" cy="155" r="4" fill="rgba(99,102,241,0.6)" />
+        <circle cx="120" cy="82" r="4" fill="rgba(120,100,241,0.7)" />
+        <circle cx="200" cy="22" r="4" fill="rgba(168,85,247,0.8)" />
+      </svg>
+      <div className="mvp-path" aria-hidden="true" />
       <div className="mvp-rocket">🚀</div>
-      <div className="mvp-path" />
       <div className="mvp-step step-a">Idea</div>
       <div className="mvp-step step-b">Build</div>
       <div className="mvp-step step-c">Launch</div>
@@ -1781,7 +1796,7 @@ function Footer() {
         <div className="footer-right">
           <div className="footer-lucky-graphic">
             <div className="lucky-cube">
-              <img src="/favicon.svg" alt="Coderift" className="lucky-cube-favicon" />
+              <img src="/image (1).svg" alt="Coderift" className="lucky-cube-favicon" />
             </div>
             <div className="lucky-text-row">
               <svg className="lucky-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -105,7 +105,7 @@ function loadToolIcons() {
         // final fallback: site favicon
         const f = document.createElement('img');
         f.className = 'svg-icon-img';
-        f.src = 'favicon.svg';
+        f.src = 'image (1).svg';
         f.alt = 'icon';
         el.appendChild(f);
       };

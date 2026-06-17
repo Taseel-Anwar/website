@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function LogoMark() {
   return (
     <div className="lt-logo" aria-hidden="true">
-      <img className="lt-logo-mark" src="/favicon.svg" alt="" />
+      <img className="lt-logo-mark" src="/image (1).svg" alt="" />
       <span className="lt-logo-text">Coderift</span>
     </div>
   );

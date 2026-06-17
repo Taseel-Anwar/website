@@ -560,7 +560,7 @@ em { font-style: italic; color: var(--accent-light); }
   font-family: 'DM Sans', sans-serif;
   font-size: 15px;
   font-weight: 400;
-  color: #6b7280;
+  color: var(--text-dim);
   line-height: 1.45;
 }
 
@@ -568,7 +568,7 @@ em { font-style: italic; color: var(--accent-light); }
   display: block;
   font-size: 19px;
   font-weight: 700;
-  color: #111827;
+  color: var(--text);
 }
 
 .footer-subscribe-row {
@@ -1235,7 +1235,7 @@ em { font-style: italic; color: var(--accent-light); }
 
 .stack-showcase .section-title {
   margin-bottom: 0;
-  color: #08265c;
+  color: var(--text);
   font-size: clamp(2.2rem, 3.2vw, 3.1rem);
   line-height: 1.08;
 }
@@ -2157,10 +2157,10 @@ em { font-style: italic; color: var(--accent-light); }
   overflow: hidden;
   padding: 108px 0 118px;
   background:
-    radial-gradient(circle at 18% 46%, rgba(255, 218, 149, 0.38), transparent 24%),
-    radial-gradient(circle at 74% 58%, rgba(255, 155, 170, 0.24), transparent 28%),
-    radial-gradient(circle at 52% 18%, rgba(93, 135, 255, 0.16), transparent 26%),
-    linear-gradient(180deg, #fbfcff 0%, #fff7f1 56%, #f7fbff 100%);
+    radial-gradient(circle at 18% 46%, rgba(99,102,241,0.12), transparent 24%),
+    radial-gradient(circle at 74% 58%, rgba(168,85,247,0.08), transparent 28%),
+    radial-gradient(circle at 52% 18%, rgba(99,102,241,0.08), transparent 26%),
+    var(--surface);
 }
 
 .testimonials::before {
@@ -2168,8 +2168,8 @@ em { font-style: italic; color: var(--accent-light); }
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(15, 43, 102, 0.04) 1px, transparent 1px),
-    linear-gradient(rgba(15, 43, 102, 0.035) 1px, transparent 1px);
+    linear-gradient(90deg, rgba(99,102,241,0.04) 1px, transparent 1px),
+    linear-gradient(rgba(99,102,241,0.035) 1px, transparent 1px);
   background-size: 74px 74px;
   mask-image: linear-gradient(180deg, transparent, #000 16%, #000 84%, transparent);
   pointer-events: none;
@@ -2188,13 +2188,13 @@ em { font-style: italic; color: var(--accent-light); }
 
 .testimonials .section-title {
   margin-bottom: 16px;
-  color: #17224a;
+  color: var(--text);
 }
 
 .testimonials-kicker {
   max-width: 720px;
   margin: 0 auto 56px;
-  color: #313a61;
+  color: var(--text-muted);
   font-size: 1.18rem;
 }
 
@@ -2221,12 +2221,10 @@ em { font-style: italic; color: var(--accent-light); }
   padding: 34px 34px 32px;
   overflow: visible;
   isolation: isolate;
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, rgba(59, 116, 255, 0.24), rgba(255, 198, 92, 0.18), rgba(255, 131, 153, 0.22)) border-box;
-  border: 1px solid transparent;
+  background: hsl(260, 55%, 8%);
+  border: 1px solid rgba(99,102,241,0.18);
   border-radius: 8px;
-  box-shadow: 0 24px 70px rgba(26, 42, 77, 0.08);
+  box-shadow: 0 24px 70px rgba(0,0,0,0.35);
   transition: transform 0.32s ease, box-shadow 0.32s ease, border-color 0.32s ease;
 }
 
@@ -2285,7 +2283,7 @@ em { font-style: italic; color: var(--accent-light); }
 
 .testi-meta h3 {
   margin: 0 0 4px;
-  color: #25264f;
+  color: var(--text);
   font-family: var(--font-body);
   font-size: clamp(1.35rem, 1.8vw, 1.95rem);
   font-weight: 700;
@@ -2295,13 +2293,13 @@ em { font-style: italic; color: var(--accent-light); }
 
 .testi-meta span {
   display: block;
-  color: #68708f;
+  color: var(--text-dim);
   font-size: 1rem;
 }
 
 .testi-quote {
   margin: 28px 0 30px;
-  color: #33395f;
+  color: var(--text-muted);
   font-size: clamp(1rem, 1.18vw, 1.16rem);
   font-style: italic;
   line-height: 1.55;
@@ -2327,7 +2325,7 @@ em { font-style: italic; color: var(--accent-light); }
 }
 
 .testimonials-showcase .testi-author strong {
-  color: #1c1d2d;
+  color: var(--text);
   font-size: 1.16rem;
   letter-spacing: 0.03em;
   text-transform: uppercase;
@@ -2335,23 +2333,20 @@ em { font-style: italic; color: var(--accent-light); }
 
 .testi-card.accent-gold::before,
 .testi-card.accent-gold {
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, rgba(255, 187, 76, 0.48), rgba(59, 116, 255, 0.18)) border-box;
+  background: hsl(260, 55%, 8%);
+  border-color: rgba(255, 187, 76, 0.25);
 }
 
 .testi-card.accent-rose::before,
 .testi-card.accent-rose {
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, rgba(255, 117, 145, 0.42), rgba(111, 142, 255, 0.2)) border-box;
+  background: hsl(260, 55%, 8%);
+  border-color: rgba(255, 117, 145, 0.22);
 }
 
 .testi-card.accent-teal::before,
 .testi-card.accent-teal {
-  background:
-    linear-gradient(#ffffff, #ffffff) padding-box,
-    linear-gradient(135deg, rgba(28, 184, 166, 0.34), rgba(59, 116, 255, 0.24)) border-box;
+  background: hsl(260, 55%, 8%);
+  border-color: rgba(28, 184, 166, 0.22);
 }
 
 .testimonials-showcase .upwork-badge {
@@ -2409,7 +2404,7 @@ em { font-style: italic; color: var(--accent-light); }
 /* ============ HOME CARD SHOWCASE ============ */
 .what-we-do-masonry {
   padding: 110px 0 120px;
-  background: linear-gradient(180deg, rgba(255,255,255,0.45), rgba(238,244,255,0.8));
+  background: var(--black);
 }
 .what-we-do-head {
   max-width: 760px;
@@ -2725,26 +2720,76 @@ em { font-style: italic; color: var(--accent-light); }
 }
 .visual-mvp {
   background: hsl(260, 60%, 7%);
+  overflow: hidden;
 }
-.mvp-path {
-  left: 24px; right: 24px; bottom: 58px;
-  height: 4px; border-radius: 999px;
-  background: linear-gradient(90deg, rgba(99,102,241,0.1), rgba(99,102,241,0.7), rgba(168,85,247,0.55));
+
+/* Rocket arc SVG — fills the whole visual area */
+.mvp-arc-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
 }
+.mvp-arc-path {
+  fill: none;
+  stroke: url(#mvpGrad);
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  stroke-dasharray: 8 7;
+  animation: lineDash 3s linear infinite;
+}
+
+/* Rocket emoji — rides the arc, top-right area */
+.mvp-rocket {
+  font-size: 28px;
+  top: 18px;
+  right: 26px;
+  transform: rotate(30deg);
+  filter: drop-shadow(0 4px 14px rgba(99,102,241,0.5));
+  animation: rocketBob 3s ease-in-out infinite;
+}
+
+/* Glow orb behind rocket */
+.mvp-glow {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(168,85,247,0.22), transparent 70%);
+  pointer-events: none;
+}
+
+/* Step pills along the bottom */
 .mvp-step {
   bottom: 22px;
-  padding: 10px 14px;
+  padding: 11px 18px;
   border-radius: 14px;
   background: hsl(260, 55%, 10%);
-  border: 1px solid rgba(99,102,241,0.2);
-  color: var(--text-muted);
-  font-size: 12px;
+  border: 1px solid rgba(99,102,241,0.25);
+  color: var(--text);
+  font-size: 13px;
   font-weight: 700;
   box-shadow: 0 8px 18px rgba(0,0,0,0.3);
+  white-space: nowrap;
 }
-.step-a { left: 18px; }
+.step-a { left: 18px; border-color: rgba(99,102,241,0.4); }
 .step-b { left: 50%; transform: translateX(-50%); }
-.step-c { right: 18px; }
+.step-c { right: 18px; border-color: rgba(168,85,247,0.4); }
+
+/* Connector dots between steps */
+.mvp-path {
+  left: 18px; right: 18px; bottom: 54px;
+  height: 2px; border-radius: 999px;
+  background: linear-gradient(90deg, rgba(99,102,241,0.5), rgba(168,85,247,0.5));
+  opacity: 0.5;
+}
+
+@keyframes rocketBob {
+  0%, 100% { transform: rotate(30deg) translateY(0); }
+  50%       { transform: rotate(30deg) translateY(-6px); }
+}
 .masonry-card-content {
   display: flex;
   flex-direction: column;
