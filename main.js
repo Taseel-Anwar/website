@@ -1,4 +1,4 @@
-// Navbar scroll effect
+﻿// Navbar scroll effect
 const navbar = document.getElementById('navbar');
 window.addEventListener('scroll', () => {
   if (window.scrollY > 20) {
@@ -105,7 +105,7 @@ function loadToolIcons() {
         // final fallback: site favicon
         const f = document.createElement('img');
         f.className = 'svg-icon-img';
-        f.src = 'image (1).svg';
+        f.src = 'taseel-logo.svg';
         f.alt = 'icon';
         el.appendChild(f);
       };
@@ -256,3 +256,4 @@ if (window.location.pathname.includes('services')) {
     });
   });
 }
+

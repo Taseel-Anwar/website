@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#5f5ffa"/>
+      <stop offset="100%" stop-color="#a855f7"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Rounded square bg -->
+  <rect width="48" height="48" rx="11" fill="url(#bg)"/>
+
+  <!--
+    TA ligature:
+    – The T's vertical stem IS the A's left leg — they share x=15
+    – T horizontal bar at y=12 spans x=7 to x=23
+    – A's right leg goes from (23,12) down to (32,36)
+    – A crossbar connects T-stem at (15,25) to A-right at (27.5,25)
+  -->
+
+  <!-- T crossbar / A apex bar -->
+  <rect x="7" y="10.5" width="17" height="3.2" rx="1.6" fill="white"/>
+
+  <!-- T stem + A left leg (shared vertical) -->
+  <rect x="13.6" y="10.5" width="3.2" height="25.5" rx="1.6" fill="white"/>
+
+  <!-- A right leg — diagonal line from top-right to bottom-right -->
+  <!-- from (24, 12) to (39, 37) — angle ~79° -->
+  <line x1="24" y1="13.5" x2="39.5" y2="37"
+        stroke="white" stroke-width="3.2" stroke-linecap="round"/>
+
+  <!-- A crossbar — horizontal from T-stem midpoint to A-right-leg midpoint -->
+  <!-- T-stem at y=25: x=15.2 center; A-right at y=25: lerp from (24,13.5)→(39.5,37) at t≈0.44 → x≈30.8 -->
+  <line x1="15.2" y1="25" x2="31" y2="25"
+        stroke="white" stroke-width="2.8" stroke-linecap="round" opacity="0.9"/>
+</svg>

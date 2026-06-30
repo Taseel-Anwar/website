@@ -1,11 +1,11 @@
-import { useMemo, useState } from 'react';
+﻿import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function LogoMark() {
   return (
     <div className="lt-logo" aria-hidden="true">
-      <img className="lt-logo-mark" src="/image (1).svg" alt="" />
-      <span className="lt-logo-text">Coderift</span>
+      <img className="lt-logo-mark" src="/taseel-logo.svg" alt="" />
+      <span className="lt-logo-text">Taseel Anwar</span>
     </div>
   );
 }
@@ -144,7 +144,7 @@ export default function PremiumLetsTalkSection() {
     const timePart = selectedTime || '';
     const subject = `Let\'s Talk — ${datePart} ${timePart}`;
     const body = [
-      `Hi Coderift,`,
+      `Hi Taseel,`,
       `I'd like to book a call for:`,
       `Date: ${selectedLabel || datePart}`,
       `Time: ${timePart || '-'}`,
@@ -182,7 +182,7 @@ export default function PremiumLetsTalkSection() {
 
             <div className="lt-copy-card">
               <div className="lt-eyebrow">Let&apos;s Talk</div>
-              <h2 className="lt-head">Coderift Discovery Call</h2>
+              <h2 className="lt-head">Discovery Call with Taseel</h2>
 
               <div className="lt-duration" aria-label="Meeting duration">
                 <span aria-hidden="true">◔</span>
@@ -304,4 +304,5 @@ export default function PremiumLetsTalkSection() {
     </section>
   );
 }
+
 

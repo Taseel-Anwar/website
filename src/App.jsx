@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+﻿import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { FiMail, FiMapPin, FiLayers, FiZap } from 'react-icons/fi';
 import { BsCursorText } from 'react-icons/bs';
@@ -441,8 +441,8 @@ function Header() {
     <>
       <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
         <Link to="/" className="nav-logo">
-          <img src="/image (1).svg" alt="Coderift" width="32" height="32" />
-          <span>Coderift</span>
+          <img src="/taseel-logo.svg" alt="Taseel Anwar" width="32" height="32" />
+          <span>Taseel Anwar</span>
         </Link>
 
         <ul className="nav-links">
@@ -575,17 +575,17 @@ function ServicesHero() {
     <section className="services-hero">
       <div className="container services-hero-inner">
         <div className="services-hero-copy">
-          <SectionLabel>Our Services</SectionLabel>
+          <SectionLabel>My Services</SectionLabel>
           <h1>
-            Our <span>Services</span>
+            My <span>Services</span>
           </h1>
           <p>
             Comprehensive technology services designed to accelerate your business growth. From custom software
-            development to full-stack solutions, we&apos;ve got you covered.
+            development to full-stack solutions, I've got you covered.
           </p>
           <div className="services-hero-actions">
             <Link to="/contact" className="btn-primary btn-lg">
-              Talk to Us
+              Talk to Me
             </Link>
           </div>
         </div>
@@ -705,8 +705,8 @@ function DarkHero() {
         {/* ── Navbar — merged into hero ── */}
         <nav className={`dh-nav${scrolled ? ' dh-nav-scrolled' : ''}`}>
           <div className="dh-nav-left">
-            <img src="/image (1).svg" alt="Coderift" className="dh-nav-logo-img" />
-            <span className="dh-nav-logo-name">Coderift</span>
+            <img src="/taseel-logo.svg" alt="Taseel Anwar" className="dh-nav-logo-img" />
+            <span className="dh-nav-logo-name">Taseel Anwar</span>
           </div>
           <div className="dh-nav-center">
             {navLinks.map(link => (
@@ -752,37 +752,69 @@ function DarkHero() {
             {/* Left */}
             <div className="dh-left">
               <h1 className="dh-headline">
-                Rift Through<br />
-                the{' '}
-                <span className="dh-headline-em">Ordinary.</span>
+                Build Smarter.<br />
+                Ship{' '}
+                <span className="dh-headline-em">Faster.</span>
               </h1>
               <p className="dh-subtitle">
-                We build fast, efficient digital products using the modern toolset — no-code, AI automation, and scalable web platforms. Your idea, live before competitors wake up.
+                I'm Taseel Anwar — a full-stack developer & no-code specialist based in Lahore. I turn ideas into live digital products using modern tools: AI automation, no-code platforms, and scalable web engineering.
               </p>
               <div className="dh-ctas">
-                <Link to="/portfolio" className="dh-cta-filled">View Our Work</Link>
-                <Link to="/services"  className="dh-cta-outline">Explore Services</Link>
+                <Link to="/portfolio" className="dh-cta-filled">View My Work</Link>
+                <Link to="/contact"  className="dh-cta-outline">Hire Me</Link>
               </div>
             </div>
 
-            {/* Right — terminal */}
+            {/* Right — profile photo card */}
             <div className="dh-right">
-              <div className="dh-terminal">
-                <div className="dh-term-bar">
-                  <span className="dh-dot dh-dot-r" />
-                  <span className="dh-dot dh-dot-y" />
-                  <span className="dh-dot dh-dot-g" />
-                  <span className="dh-term-title">coderift.sh</span>
+              <div className="dh-profile-card">
+                {/* Outer decorative ring */}
+                <div className="dh-profile-ring" aria-hidden="true" />
+
+                {/* The photo frame */}
+                <div className="dh-profile-frame">
+                  <div className="dh-profile-glow" aria-hidden="true" />
+                  <img
+                    src="/taseel.jpg"
+                    alt="Taseel Anwar — Full-Stack Developer"
+                    className="dh-profile-photo"
+                  />
+                  {/* Name plate over photo */}
+                  <div className="dh-profile-nameplate">
+                    <div className="dh-profile-nameplate-text">
+                      <h3>Taseel Anwar</h3>
+                      <span>Full-Stack Dev · No-Code · AI</span>
+                    </div>
+                    <div className="dh-profile-badge">
+                      <span className="dh-profile-dot" />
+                      Open to work
+                    </div>
+                  </div>
                 </div>
-                <div className="dh-term-body">
-                  <div className="dh-term-line dh-term-cmd">$ init project --stack modern</div>
-                  <div className="dh-term-line dh-term-out">✓ No-code layer initialized</div>
-                  <div className="dh-term-line dh-term-out">✓ AI automation connected</div>
-                  <div className="dh-term-line dh-term-out">✓ Vibe coding activated</div>
-                  <div className="dh-term-line dh-term-out">✓ Full-stack ready</div>
-                  <div className="dh-term-line dh-term-cmd">$ deploy --fast --efficient</div>
-                  <div className="dh-term-line dh-term-out">🚀 Product live. Budget saved.</div>
-                  <span className="dh-term-cursor">_</span>
+
+                {/* Floating stat chips */}
+                <div className="dh-profile-chip dh-chip-projects" aria-hidden="true">
+                  <div className="dh-profile-chip-icon">🏆</div>
+                  <div className="dh-profile-chip-label">
+                    <strong>10+ Projects</strong>
+                    <span>Delivered globally</span>
+                  </div>
+                </div>
+
+                <div className="dh-profile-chip dh-chip-rating" aria-hidden="true">
+                  <div className="dh-profile-chip-icon">⭐</div>
+                  <div className="dh-profile-chip-label">
+                    <strong>4.9 / 5.0</strong>
+                    <span>Upwork rating</span>
+                  </div>
+                </div>
+
+                <div className="dh-profile-chip dh-chip-stack" aria-hidden="true">
+                  <div className="dh-profile-chip-icon">⚡</div>
+                  <div className="dh-profile-chip-label">
+                    <strong>5 Stacks</strong>
+                    <span>No-code to full-stack</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -792,7 +824,7 @@ function DarkHero() {
         {/* ── Marquee ── */}
         <div className="dh-marquee-wrap">
           <div className="dh-marquee-inner">
-            <p className="dh-marquee-label">Relied on by brands /<br />across the globe</p>
+            <p className="dh-marquee-label">Trusted tools I use /<br />to deliver results</p>
             <div className="dh-marquee-track-wrap">
               <div className="dh-marquee-track">
                 {[...marqueeLogos, ...marqueeLogos].map((logo, i) => (
@@ -854,7 +886,7 @@ function HomePage() {
     const timePart = selectedTime || '';
     const subject = `Let\'s Talk — ${datePart} ${timePart}`;
     const body = [
-      `Hi Coderift,`,
+      `Hi Taseel,`,
       `I'd like to schedule a discussion for:`,
       `Date: ${selectedDateLabel || datePart}`,
       `Time: ${timePart || '-'}`,
@@ -939,30 +971,29 @@ function HomePage() {
       <section className="stack-showcase">
         <div className="container stack-cluster-grid">
           <div className="stack-copy">
-            <h2 className="section-title">We use AI throughout our work</h2>
+            <h2 className="section-title">I use AI throughout my work</h2>
             <p className="stack-copy-text">
-              We integrate AI into various parts of our process to streamline it, as well as into the products that we build.
+              I integrate AI into every part of my process — and directly into the products I build for clients.
             </p>
             <Link to="/services" className="stack-copy-cta">
-              Learn more about AI products
+              Learn more about AI products →
             </Link>
           </div>
 
           <div className="stack-cluster">
-            {clusterItems.map((item, index) => (
-              <span key={`${item.brand}-line`} className={`cluster-line line-${index + 1}`} aria-hidden="true" />
-            ))}
-            <div className="cluster-center">
-              <FaMagic className="cluster-center-icon" aria-label="AI" />
+            <div className="cluster-center" aria-hidden="true">
+              <FaMagic className="cluster-center-icon" />
             </div>
-            {clusterItems.map((item, index) => (
-              <div key={item.brand} className={`cluster-item item-${index + 1}`}>
-                <div className={`cluster-badge brand-${item.brand}`}>
-                  <span className="brand-mark" aria-hidden="true" />
-                  <span className="brand-name">{item.name}</span>
+            <div className="cluster-grid">
+              {clusterItems.map((item, index) => (
+                <div key={item.brand} className={`cluster-item item-${index + 1}`}>
+                  <div className={`cluster-badge brand-${item.brand}`}>
+                    <span className="brand-mark" aria-hidden="true" />
+                    <span className="brand-name">{item.name}</span>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       </section>
@@ -994,18 +1025,18 @@ function HomePage() {
         <div className="container">
           <div className="why-inner">
             <div className="why-text">
-              <SectionLabel>Why Coderift</SectionLabel>
+              <SectionLabel>Why Taseel</SectionLabel>
               <h2>The right tool for<br />the right problem.</h2>
               <p>
-                Traditional tech stacks are expensive and slow. We use the modern toolkit — no-code platforms, AI
+                Traditional tech stacks are expensive and slow. I use the modern toolkit — no-code platforms, AI
                 assistants, automation layers — to get you there in weeks, not quarters.
               </p>
               <p>
-                We don\'t sell you a hammer and call everything a nail. We diagnose your problem first and prescribe the
+                I don't sell you a hammer and call everything a nail. I diagnose your problem first and prescribe the
                 fastest solution.
               </p>
               <Link to="/about" className="btn-ghost">
-                Our Philosophy →
+                My Philosophy →
               </Link>
             </div>
             <div className="why-features">
@@ -1059,7 +1090,7 @@ function TestimonialCards() {
 
   return (
     <div className="testimonials-showcase">
-      <p className="testimonials-kicker">Fast-moving founders get calm, clear delivery with Coderift.</p>
+      <p className="testimonials-kicker">Fast-moving founders get results with Taseel Anwar.</p>
       <div className="testimonials-grid">
         {testimonials.slice(0, 3).map((item, index) => {
           const detail = cardDetails[index % cardDetails.length];
@@ -1465,7 +1496,7 @@ function PortfolioPage() {
     <main>
       <PageHero
         label="Our Work"
-        title="Projects that prove the Coderift approach."
+        title="Projects that prove my approach."
         subtitle="Real problems solved with the right tool — not the most expensive one."
       />
       <section className="portfolio-section">
@@ -1494,9 +1525,9 @@ function AboutPage() {
   return (
     <main>
       <PageHero
-        label="About Coderift"
-        title="We exist to close the gap between idea and live product."
-        subtitle="Lahore-based. Globally delivered. Built on the belief that the best solution isn\'t always the most complex one."
+        label="About Me"
+        title="I close the gap between idea and live product."
+        subtitle="Lahore-based. Globally delivered. I believe the best solution isn't always the most complex one."
       />
       <section className="about-mission">
         <div className="container">
@@ -1507,7 +1538,7 @@ function AboutPage() {
                 more time than most businesses have. We provide the right solution for the right problem — using modern
                 tools that make development fast, efficient, and accessible.
               </blockquote>
-              <cite>— Coderift, Lahore</cite>
+              <cite>— Taseel Anwar, Lahore</cite>
             </div>
             <div className="mission-pillars">
               {aboutPillars.map((pillar) => (
@@ -1525,8 +1556,8 @@ function AboutPage() {
       </section>
       <section className="difference-section">
         <div className="container">
-          <SectionLabel>The Coderift Difference</SectionLabel>
-          <h2 className="section-title">We speak every layer of the modern stack.</h2>
+          <SectionLabel>What Makes Me Different</SectionLabel>
+          <h2 className="section-title">I speak every layer of the modern stack.</h2>
           <div className="stack-visual">
             {stackLayers.map((layer, index) => (
               <div key={layer.label} className="stack-layer">
@@ -1536,8 +1567,8 @@ function AboutPage() {
             ))}
           </div>
           <p className="stack-caption">
-            Most agencies specialise in one layer. We operate across all five — which means we choose the optimal
-            approach for your specific problem rather than defaulting to what we know.
+            Most developers specialise in one layer. I operate across all five — which means I choose the optimal
+            approach for your specific problem rather than defaulting to what I know.
           </p>
         </div>
       </section>
@@ -1748,29 +1779,12 @@ function Footer() {
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_104800_bc43ae09-f494-43e3-97d7-2f8c1692cfd7.mp4" type="video/mp4" />
           </video>
           <div className="footer-logo">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none" className="footer-logo-svg">
-              <defs>
-                <linearGradient id="flg1" x1="0" y1="0" x2="1" y2="1">
-                  <stop offset="0%" stopColor="#1E90FF"/>
-                  <stop offset="100%" stopColor="#0057D9"/>
-                </linearGradient>
-                <mask id="flm1">
-                  <rect width="64" height="64" fill="white"/>
-                  <line x1="28" y1="12" x2="36" y2="50" stroke="black" strokeWidth="3"/>
-                </mask>
-                <mask id="flm2">
-                  <rect width="64" height="64" fill="white"/>
-                  <line x1="28" y1="12" x2="36" y2="50" stroke="black" strokeWidth="3"/>
-                </mask>
-              </defs>
-              <path d="M16 44 L22 18 L34 28 L28 46 Z" fill="url(#flg1)" mask="url(#flm1)"/>
-              <path d="M34 18 L52 18 L46 46 L30 36 Z" fill="#0A4DCC" mask="url(#flm2)"/>
-            </svg>
-            <span className="footer-logo-name">Coderift</span>
+            <img src="/taseel-logo.svg" alt="Taseel Anwar" className="footer-logo-svg" />
+            <span className="footer-logo-name">Taseel Anwar</span>
           </div>
           <div className="footer-tagline-container">
             <p className="footer-tagline">
-              Modern tech solutions,<br /><span>built for businesses that move fast.</span>
+              Full-stack developer & no-code specialist,<br /><span>building fast, modern digital products.</span>
             </p>
           </div>
           <div className="footer-social-row">
@@ -1796,7 +1810,7 @@ function Footer() {
         <div className="footer-right">
           <div className="footer-lucky-graphic">
             <div className="lucky-cube">
-              <img src="/image (1).svg" alt="Coderift" className="lucky-cube-favicon" />
+              <img src="/taseel-logo.svg" alt="Taseel Anwar" className="lucky-cube-favicon" />
             </div>
             <div className="lucky-text-row">
               <svg className="lucky-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -1828,9 +1842,9 @@ function Footer() {
           </div>
 
           <div className="footer-bottom">
-            <span className="footer-copyright">&copy; {new Date().getFullYear()} Coderift. All rights reserved.</span>
+            <span className="footer-copyright">&copy; {new Date().getFullYear()} Taseel Anwar. All rights reserved.</span>
             <div className="footer-cta-mini">
-              <h4>Move fast.<br /><strong>Build with Coderift.</strong></h4>
+              <h4>Let's connect.<br /><strong>Work with Taseel.</strong></h4>
               <div className="footer-subscribe-row">
                 <input type="email" placeholder="Enter email address" aria-label="Email address" />
                 <button type="button" onClick={() => { window.location.href = 'mailto:taseel.work@gmail.com'; }}>
@@ -1855,7 +1869,7 @@ function Footer() {
               <stop offset="100%" stopColor="rgba(99,102,241,0)" />
             </linearGradient>
           </defs>
-          <text id="watermarkText" x="500" y="240" textAnchor="middle" fontSize="320" fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="600" fontStyle="italic" letterSpacing="-0.02em" fill="url(#wmGrad)">Coderift</text>
+          <text id="watermarkText" x="500" y="240" textAnchor="middle" fontSize="320" fontFamily="'Cormorant Garamond', Georgia, serif" fontWeight="600" fontStyle="italic" letterSpacing="-0.02em" fill="url(#wmGrad)">Taseel</text>
         </svg>
       </div>
     </section>
@@ -1898,3 +1912,4 @@ export default function App() {
     </div>
   );
 }
+

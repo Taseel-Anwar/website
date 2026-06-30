@@ -123,12 +123,12 @@ function OfferCard({ offer }) {
 
 export default function CoderiftOffersSection() {
   return (
-    <section className="offers-section" aria-label="Coderift offers">
+    <section className="offers-section" aria-label="Taseel Anwar services">
       <div className="container">
         <div className="offers-header">
-          <h2 className="offers-title">Maximize Your Investment With Coderift</h2>
+          <h2 className="offers-title">Maximize Your Investment With Taseel</h2>
           <p className="offers-sub">
-            From rapid MVP launches to AI-powered automations, our solutions help businesses reduce development
+            From rapid MVP launches to AI-powered automations, my solutions help businesses reduce development
             costs, launch faster, and scale efficiently.
           </p>
         </div>
