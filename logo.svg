@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" fill="none">
+  <defs>
+    <linearGradient id="blueGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1E90FF"></stop>
+      <stop offset="100%" stop-color="#0057D9"></stop>
+    </linearGradient>
+    <mask id="gapMask1">
+      <rect width="64" height="64" fill="white"></rect>
+      <line x1="28" y1="12" x2="36" y2="50" stroke="black" stroke-width="3"></line>
+    </mask>
+    <mask id="gapMask2">
+      <rect width="64" height="64" fill="white"></rect>
+      <line x1="28" y1="12" x2="36" y2="50" stroke="black" stroke-width="3"></line>
+    </mask>
+  </defs>
+  <path d="M16 44 L22 18 L34 28 L28 46 Z" fill="url(#blueGrad)" mask="url(#gapMask1)" data-index="0"></path>
+  <path d="M34 18 L52 18 L46 46 L30 36 Z" fill="#0A4DCC" mask="url(#gapMask2)" data-index="1"></path>
+</svg>

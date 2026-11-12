@@ -105,7 +105,7 @@ function loadToolIcons() {
         // final fallback: site favicon
         const f = document.createElement('img');
         f.className = 'svg-icon-img';
-        f.src = 'taseel-logo.svg';
+        f.src = 'logo.svg';
         f.alt = 'icon';
         el.appendChild(f);
       };

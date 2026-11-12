@@ -92,13 +92,19 @@ const stackItems = [
 ];
 
 const clusterItems = [
-  { name: 'deepseek', brand: 'deepseek' },
-  { name: 'OpenAI', brand: 'openai' },
-  { name: 'Gemini', brand: 'gemini' },
-  { name: 'MISTRAL AI_', brand: 'mistral' },
-  { name: 'ANTHROPIC', brand: 'anthropic' },
-  { name: 'Llama', brand: 'llama' }
+  { name: 'DeepSeek', brand: 'deepseek', icon: 'deepseek' },
+  { name: 'OpenAI', brand: 'openai', icon: 'openai' },
+  { name: 'Gemini', brand: 'gemini', icon: 'googlegemini' },
+  { name: 'Mistral AI', brand: 'mistral', icon: 'mistral' },
+  { name: 'Anthropic', brand: 'anthropic', icon: 'anthropic' },
+  { name: 'Llama', brand: 'llama', icon: 'meta' }
 ];
+
+function WorkflowLogo({ item }) {
+  return <span className={`brand-mark brand-mark-${item.brand}`}>
+    <img src={`/brands/${item.brand}.svg`} alt={item.name} title={item.name} />
+  </span>;
+}
 
 const serviceCards = [
   {
@@ -242,37 +248,54 @@ const servicesSections = [
 
 const portfolioItems = [
   {
+    number: '01', title: 'CloudOps — DevOps Monitor', role: 'Full-Stack Development',
+    description: 'A DevOps monitoring SaaS bringing infrastructure health, CI/CD pipelines, uptime, and incident diagnosis into one workspace. Includes a Gemini assistant and team-level data isolation with Supabase.',
+    tags: ['Next.js', 'Vercel', 'Gemini', 'Supabase'],
+    outcome: 'Service health dashboards, deployment alerts, and AI-assisted incident investigation.',
+    image: '/portfolio/cloudops.png', gallery: ['/portfolio/cloudops.png', '/portfolio/cloudops-detail.png'],
+    source: 'https://www.upwork.com/freelancers/~01af62dd25502a2237?p=2082831555716149248'
+  },
+  {
+    number: '02', title: 'FinPulse — Finance Dashboard', role: 'Full-Stack Development',
+    description: 'A finance dashboard bringing revenue, expenses, and subscriptions together. Stripe webhooks support MRR and churn tracking, with interactive charts and a Gemini assistant for spending insights.',
+    tags: ['Next.js', 'Stripe', 'Gemini', 'AWS'],
+    outcome: 'Revenue reporting, subscription tracking, and alerts for renewals and budget thresholds.',
+    image: '/portfolio/finpulse.jpg',
+    source: 'https://www.upwork.com/freelancers/~01af62dd25502a2237?p=2082830946682236928'
+  },
+  {
+    number: '03', title: 'SkillForge', role: 'Full-Stack Development',
+    description: 'An EdTech SaaS combining a learner portal and instructor administration. Includes Stripe checkout, Mux video lessons, a Gemini AI tutor, timed quizzes, progress tracking, and completion certificates.',
+    tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Gemini', 'SendGrid'],
+    outcome: 'Course delivery, learner progress, and instructor analytics in one product.',
+    image: '/portfolio/skillforge.jpg', source: 'https://www.upwork.com/freelancers/~01af62dd25502a2237'
+  },
+
+  {
     number: '01',
-    title: 'Sports Programs Marketplace',
-    role: 'Lead Product Architect & No-Code Specialist',
+    title: 'Greenlight Athletics — AthletIQ',
+    role: 'Bubble Application Development',
+    image: '/portfolio/greenlight.jpg', source: 'https://greenlightathletics.com/', sourceLabel: 'Visit project',
     description: 'A centralised marketplace for local sports programs, camps, and verified athletic coaches — designed for parents and community organisers.',
     tags: ['Bubble.io', 'Marketplace', 'No-Code'],
     outcome: 'Full marketplace platform delivered rapidly with a polished user experience.'
   },
-  {
-    number: '02',
-    title: 'Advanced Car Inspection Platform',
-    role: 'Full-Stack Retool Application',
-    description: 'A visual vehicle inspection workflow with live reports, API integrations, and dynamic status tracking for inspection teams.',
-    tags: ['Retool', 'MongoDB', 'API'],
-    outcome: 'Interactive inspection workflows with real-time data and automated report generation.'
-  },
+  
   {
     number: '03',
     title: 'Tradernode — Financial Management MVP',
+    image: '/portfolio/tradernode.png', source: 'https://tradernode.bubbleapps.io', sourceLabel: 'Visit project',
     role: 'SaaS Platform for Prop Traders',
     description: 'A clean trading dashboard with P&L analytics, payout tracking, and portfolio monitoring for active traders.',
     tags: ['Bubble.io', 'SaaS', 'FinTech'],
     outcome: 'A fully functional financial MVP delivered without traditional development overhead.'
   },
-  {
-    number: '04',
-    title: 'Taxi Service Dashboard Ecosystem',
-    role: 'Admin Platform + Connected Apps',
-    description: 'A comprehensive control system for taxi operations with role-based access, dispatch dashboards, and fleet analytics.',
-    tags: ['Retool', 'MongoDB', 'RBAC'],
-    outcome: 'One unified platform for operations, drivers, and dispatch management.'
-  }
+  
+{"title": "Rent Referee — Rental Review Platform", "role": "Bubble Application Development", "description": "A rental review platform with map-based property search, reviews, and an onboarding flow for different user roles.", "tags": ["Bubble.io", "Stripe", "Maps"], "outcome": "Property search, rental reviews, and responsive account onboarding.", "image": "/portfolio/rent-referee.jpg"},
+{"title": "Elvasma — Faith Quiz App", "role": "Bubble Application Development", "description": "A mobile-first Bible study application with interactive faith quizzes, reading guides, and progress tracking. Onboarding connects Shopify purchases with account access.", "tags": ["Bubble.io", "Shopify", "n8n"], "outcome": "Faith quizzes, study guides, progress tracking, and controlled onboarding.", "image": "/portfolio/elvasma.png", "source": "https://app.elvasma.com", "sourceLabel": "Visit project"},
+{"title": "Calendar-to-Voice Interview Automation", "role": "n8n Workflow Development", "description": "A Google Calendar workflow that filters interview events, extracts Google Meet details, validates meeting data, and prepares outbound calls through VAPI.", "tags": ["n8n", "Google Calendar", "VAPI"], "outcome": "Calendar triggers, meeting validation, outbound calls, and missing-data handling.", "image": "/portfolio/n8n-1.jpg"},
+{"title": "AI Agent & Structured Data Workflow", "role": "n8n Workflow Development", "description": "A webhook-driven AI workflow connecting an OpenAI chat model with a structured output parser, custom code steps, and HTTP requests.", "tags": ["n8n", "OpenAI", "Webhooks"], "outcome": "AI processing, structured responses, and item-by-item API handoffs.", "image": "/portfolio/n8n-2.jpg"},
+{"title": "Voice AI Platform Automation", "role": "n8n Workflow Development", "description": "A collection of connected workflows for voice assistant operations, including phone numbers, assistant setup, call logs, calendar data, and knowledge-base updates.", "tags": ["n8n", "VAPI", "Supabase"], "outcome": "Voice assistant management, call-log updates, and data synchronization.", "image": "/portfolio/n8n-3.jpg"}
 ];
 
 const aboutPillars = [
@@ -441,7 +464,7 @@ function Header() {
     <>
       <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
         <Link to="/" className="nav-logo">
-          <img src="/taseel-logo.svg" alt="Taseel Anwar" width="32" height="32" />
+          <img src="/logo.svg" alt="Taseel Anwar" width="32" height="32" />
           <span>Taseel Anwar</span>
         </Link>
 
@@ -575,21 +598,23 @@ function ServicesHero() {
     <section className="services-hero">
       <div className="container services-hero-inner">
         <div className="services-hero-copy">
-          <SectionLabel>My Services</SectionLabel>
-          <h1>
-            My <span>Services</span>
-          </h1>
-          <p>
-            Comprehensive technology services designed to accelerate your business growth. From custom software
-            development to full-stack solutions, I've got you covered.
-          </p>
+          <span className="services-eyebrow">Development services</span>
+          <h1>Build the product.<br />Connect the rest.</h1>
+          <p>I build web apps, automate the work around them, and turn business data into useful tools. Choose the expertise your project needs.</p>
           <div className="services-hero-actions">
-            <Link to="/contact" className="btn-primary btn-lg">
-              Talk to Me
-            </Link>
+            <Link to="/contact" className="btn-primary btn-lg">Discuss your project →</Link>
+            <a href="#nocode" className="services-text-link">Explore services ↓</a>
           </div>
         </div>
-        <ServicesHeroVisual />
+        <div className="services-blueprint" aria-label="From customer experience to connected workflows and useful data">
+          <div className="blueprint-heading"><span>How the pieces connect</span><span aria-hidden="true">↗</span></div>
+          <div className="blueprint-product"><span className="blueprint-caption">The customer experience</span><h2>Your next web product</h2><div className="blueprint-tabs"><span>Web apps</span><span>Internal tools</span><span>SaaS</span></div></div>
+          <div className="blueprint-connector" aria-hidden="true">↓</div>
+          <div className="blueprint-layer"><FiZap aria-hidden="true" /><div><h3>Connected workflows</h3><p>Tools, events, and business processes</p></div></div>
+          <div className="blueprint-connector" aria-hidden="true">↓</div>
+          <div className="blueprint-layer"><FiLayers aria-hidden="true" /><div><h3>Useful intelligence</h3><p>Dashboards, data, and AI integrations</p></div></div>
+          <div className="blueprint-footnote">One project. The right tools for each layer.</div>
+        </div>
       </div>
     </section>
   );
@@ -705,7 +730,7 @@ function DarkHero() {
         {/* ── Navbar — merged into hero ── */}
         <nav className={`dh-nav${scrolled ? ' dh-nav-scrolled' : ''}`}>
           <div className="dh-nav-left">
-            <img src="/taseel-logo.svg" alt="Taseel Anwar" className="dh-nav-logo-img" />
+            <img src="/logo.svg" alt="Taseel Anwar" className="dh-nav-logo-img" />
             <span className="dh-nav-logo-name">Taseel Anwar</span>
           </div>
           <div className="dh-nav-center">
@@ -821,24 +846,6 @@ function DarkHero() {
           </div>
         </div>
 
-        {/* ── Marquee ── */}
-        <div className="dh-marquee-wrap">
-          <div className="dh-marquee-inner">
-            <p className="dh-marquee-label">Trusted tools I use /<br />to deliver results</p>
-            <div className="dh-marquee-track-wrap">
-              <div className="dh-marquee-track">
-                {[...marqueeLogos, ...marqueeLogos].map((logo, i) => (
-                  <div key={i} className="dh-marquee-item">
-                    <div className="dh-marquee-icon liquid-glass">
-                      <span>{logo.letter}</span>
-                    </div>
-                    <span className="dh-marquee-name">{logo.name}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
 
       </div>
     </section>
@@ -971,6 +978,7 @@ function HomePage() {
       <section className="stack-showcase">
         <div className="container stack-cluster-grid">
           <div className="stack-copy">
+            <span className="workflow-kicker">LIVE WORKFLOW / 01</span>
             <h2 className="section-title">I use AI throughout my work</h2>
             <p className="stack-copy-text">
               I integrate AI into every part of my process — and directly into the products I build for clients.
@@ -980,16 +988,28 @@ function HomePage() {
             </Link>
           </div>
 
-          <div className="stack-cluster">
-            <div className="cluster-center" aria-hidden="true">
+          <div className="stack-cluster workflow-canvas" aria-label="AI workflow tools">
+            <div className="workflow-scanline" aria-hidden="true" />
+            <svg className="workflow-wires" viewBox="0 0 640 440" aria-hidden="true" preserveAspectRatio="none">
+              <path d="M320 220 C220 170 150 110 90 80" />
+              <path d="M320 220 C430 160 510 100 565 76" />
+              <path d="M320 220 C205 245 130 255 64 266" />
+              <path d="M320 220 C445 250 515 270 594 286" />
+              <path d="M320 220 C275 310 250 365 228 404" />
+              <path d="M320 220 C380 310 425 365 466 405" />
+            </svg>
+            <div className="cluster-center workflow-core" aria-hidden="true">
+              <span className="workflow-core-pulse" />
               <FaMagic className="cluster-center-icon" />
+              <small>AI CORE</small>
             </div>
-            <div className="cluster-grid">
+            <div className="cluster-grid workflow-nodes">
               {clusterItems.map((item, index) => (
                 <div key={item.brand} className={`cluster-item item-${index + 1}`}>
-                  <div className={`cluster-badge brand-${item.brand}`}>
-                    <span className="brand-mark" aria-hidden="true" />
-                    <span className="brand-name">{item.name}</span>
+                  <div className={`cluster-badge brand-${item.brand} workflow-node`}>
+                    <WorkflowLogo item={item} />
+                    
+                    
                   </div>
                 </div>
               ))}
@@ -1405,66 +1425,54 @@ function WhatWeDoCard({ card }) {
 }
 
 
-function ServicesPage() {
-  return (
-    <main>
-      <ServicesHero />
+const serviceToolDescriptions = {
+  'Bubble.io': 'Marketplaces and web applications built visually.',
+  'Webflow': 'Responsive websites with a manageable content system.',
+  'Retool': 'Internal tools connected to your business data.',
+  'WordPress': 'Content-driven websites your team can maintain.',
+  'Lovable / Base44': 'AI-assisted prototypes and application development.',
+  'n8n': 'Flexible workflows connecting APIs and business tools.',
+  'Zapier': 'App integrations that handle repetitive tasks.',
+  'AI-powered Automation': 'AI steps integrated into everyday business workflows.',
+  'Custom Pipelines': 'Data transformation and routing between systems.',
+  'React / Angular': 'Interactive frontends for web applications.',
+  'Python / Django': 'Backend services and database-driven applications.',
+  'Java': 'Custom software and backend development.',
+  'Vibe Coding': 'AI-assisted development guided by engineering judgment.',
+  'Web Apps & SaaS': 'Custom applications built around your product requirements.',
+  'Software & APIs': 'Application logic and integrations between services.',
+  'Power BI / Tableau': 'Business dashboards that make data easier to read.',
+  'Python / R Visualisation': 'Custom analysis and visual explanations of your data.',
+  'BigQuery': 'Querying and analysis for your business datasets.',
+  'AI Chatbots': 'Conversational interfaces for your product or workflow.',
+  'AI Agents': 'AI tools connected to specific business tasks.'
+};
 
-      {servicesSections.map((section) => (
-        <section key={section.id} className={`service-section${section.accent ? ' alt-bg' : ''}`} id={section.id}>
-          <div className="container">
-            <div className="service-section-inner">
-              <div className="service-section-header">
-                <div className="service-big-icon">{section.icon}</div>
-                <div>
-                  <SectionLabel>{section.label}</SectionLabel>
-                  <h2>{section.title}</h2>
-                  <p>{section.description}</p>
-                </div>
-              </div>
-              <div className="tools-grid">
-                {section.tools.map((tool, index) => (
-                  <div key={tool.name} className="tool-card">
-                    <span className="tool-card-index">0{index + 1}</span>
-                    <div className="tool-card-icon">
-                      <TechLogo slug={tool.slug} label={tool.name} />
-                    </div>
-                    <div className="tool-name">{tool.name}</div>
-                    <p>{tool.description || 'Modern products built for your business, with the right technology at every step.'}</p>
-                    <div className="tool-card-footer">
-                      <span>Modern stack</span>
-                      <span className="tool-card-arrow">→</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </section>
-      ))}
-      <section className="cta-banner">
-        <div className="container">
-          <div className="cta-inner">
-            <h2>Not sure which service you need?</h2>
-            <p>Tell us your problem. We'll recommend the fastest path to your solution.</p>
-            <Link to="/contact" className="btn-primary btn-lg">
-              Talk to Us →
-            </Link>
-          </div>
-        </div>
-      </section>
-    </main>
-  );
+function ServicesPage() {
+  const titles = ['From idea to working product', 'Give repetitive work a better system', 'Software built for the way you work', 'Make your data useful'];
+  const icons = [FiLayers, FiZap, BsCursorText, TbBrandGoogleBigQuery];
+  return <main className="svc">
+    <section className="svc-hero svc-wrap">
+      <p className="svc-eyebrow">Services / Taseel Anwar</p>
+      <div className="svc-intro"><h1>Good software.<br /><span>Less busywork.</span></h1><div><p>I build web products, connect your tools, and turn data into something you can act on.</p><Link className="svc-button" to="/contact">Let's talk about your project <span>↗</span></Link></div></div>
+      <nav className="svc-index" aria-label="Service categories">{servicesSections.map((section,i)=><a href={`#${section.id}`} key={section.id}><span>0{i+1}</span>{section.label}<span>↓</span></a>)}</nav>
+    </section>
+    <div className="svc-wrap">{servicesSections.map((section,i)=>{const Icon=icons[i];return <section className="svc-section" id={section.id} key={section.id}>
+      <header className="svc-heading"><span className="svc-num">0{i+1}</span><div><p className="svc-eyebrow">{section.label}</p><h2>{titles[i]}</h2><p className="svc-summary">{section.description}</p><Link to="/contact" className="svc-link">Discuss this service ↗</Link></div><Icon className="svc-category-icon" aria-hidden="true" /></header>
+      <div className="svc-tools">{section.tools.map(tool=><article className="svc-tool" key={tool.name}><h3>{tool.name}</h3><p>{serviceToolDescriptions[tool.name]}</p></article>)}</div>
+    </section>})}</div>
+    <section className="svc-contact"><div className="svc-wrap"><p className="svc-eyebrow">Have a project in mind?</p><h2>Let's find the right<br />way to build it.</h2><Link to="/contact" className="svc-button">Tell me what you're working on <span>↗</span></Link></div></section>
+  </main>;
 }
 
 function PortfolioItem({ item, reverse }) {
   return (
     <div className={`portfolio-item${reverse ? ' reverse' : ''}`}>
       <div className={`portfolio-visual${reverse ? ' reverse' : ''}`}>
-        <div className="portfolio-placeholder">
+        {item.image ? <a className="portfolio-real-image" href={item.image} target="_blank" rel="noreferrer" aria-label={`View ${item.title} screenshot`}><img src={item.image} alt={`${item.title} project screenshot`} loading="lazy" /></a> : <div className="portfolio-placeholder">
           <div className="placeholder-label">Thumbnail coming soon</div>
           <p>Upload project image later.</p>
-        </div>
+        </div>}
         <div className="portfolio-tags-visual">
           {item.tags.map((tag) => (
             <span key={tag}>{tag}</span>
@@ -1484,8 +1492,9 @@ function PortfolioItem({ item, reverse }) {
           ))}
         </div>
         <div className="portfolio-outcome">
-          <span className="outcome-label">Outcome:</span> {item.outcome}
+          <span className="outcome-label">Includes:</span> {item.outcome}
         </div>
+        {item.source && <a className="portfolio-source" href={item.source} target="_blank" rel="noreferrer">{item.sourceLabel || 'View on Upwork'} ↗</a>}
       </div>
     </div>
   );
@@ -1502,7 +1511,7 @@ function PortfolioPage() {
       <section className="portfolio-section">
         <div className="container">
           {portfolioItems.map((item, index) => (
-            <PortfolioItem key={item.number} item={item} reverse={index % 2 === 1} />
+            <PortfolioItem key={item.title} item={{...item, number: String(index + 1).padStart(2, '0')}} reverse={index % 2 === 1} />
           ))}
         </div>
       </section>
@@ -1510,7 +1519,7 @@ function PortfolioPage() {
         <div className="container">
           <div className="cta-inner">
             <h2>Have a project in mind?</h2>
-            <p>Upload the thumbnail later — we can build the experience first.</p>
+            <p>Tell me what you want to build, connect, or improve.</p>
             <Link to="/contact" className="btn-primary btn-lg">
               Get in Touch →
             </Link>
@@ -1779,7 +1788,7 @@ function Footer() {
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_104800_bc43ae09-f494-43e3-97d7-2f8c1692cfd7.mp4" type="video/mp4" />
           </video>
           <div className="footer-logo">
-            <img src="/taseel-logo.svg" alt="Taseel Anwar" className="footer-logo-svg" />
+            <img src="/logo.svg" alt="Taseel Anwar" className="footer-logo-svg" />
             <span className="footer-logo-name">Taseel Anwar</span>
           </div>
           <div className="footer-tagline-container">
@@ -1810,7 +1819,7 @@ function Footer() {
         <div className="footer-right">
           <div className="footer-lucky-graphic">
             <div className="lucky-cube">
-              <img src="/taseel-logo.svg" alt="Taseel Anwar" className="lucky-cube-favicon" />
+              <img src="/logo.svg" alt="Taseel Anwar" className="lucky-cube-favicon" />
             </div>
             <div className="lucky-text-row">
               <svg className="lucky-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

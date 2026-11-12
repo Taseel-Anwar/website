@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 function LogoMark() {
   return (
     <div className="lt-logo" aria-hidden="true">
-      <img className="lt-logo-mark" src="/taseel-logo.svg" alt="" />
+      <img className="lt-logo-mark" src="/logo.svg" alt="" />
       <span className="lt-logo-text">Taseel Anwar</span>
     </div>
   );
@@ -150,7 +150,7 @@ export default function PremiumLetsTalkSection() {
       `Time: ${timePart || '-'}`,
       ``,
       `Quick note:`,
-      `-`,
+      `Quick details to discuss`,
       ``,
       `Sent from the website booking section.`
     ].join('\n');
