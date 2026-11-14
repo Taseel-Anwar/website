@@ -1,4 +1,4 @@
-﻿import { useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { FiMail, FiMapPin, FiLayers, FiZap } from 'react-icons/fi';
 import { BsCursorText } from 'react-icons/bs';
@@ -21,7 +21,8 @@ import {
   SiTableau,
   SiPython,
   SiAngular,
-  SiWordpress
+  SiWordpress,
+  SiR
 } from 'react-icons/si';
 
 const navLinks = [
@@ -1448,6 +1449,46 @@ const serviceToolDescriptions = {
   'AI Agents': 'AI tools connected to specific business tasks.'
 };
 
+const serviceToolBrands = {
+  'Bubble.io': [['Bubble', 'bubble']], 'Webflow': [['Webflow', 'webflow']],
+  'Retool': [['Retool', 'retool']], 'WordPress': [['WordPress', 'wordpress']],
+  'Lovable / Base44': [['Lovable', 'lovable'], ['Base44', 'base44']],
+  'n8n': [['n8n', 'n8n']], 'Zapier': [['Zapier', 'zapier']],
+  'AI-powered Automation': [['OpenAI', 'openai']],
+  'Custom Pipelines': [['Python', 'python'], ['n8n', 'n8n']],
+  'React / Angular': [['React', 'react'], ['Angular', 'angular']],
+  'Python / Django': [['Python', 'python'], ['Django', 'django']],
+  'Java': [['Java', 'java']], 'Vibe Coding': [['Cursor', 'cursor']],
+  'Web Apps & SaaS': [['React', 'react'], ['Supabase', 'supabase']],
+  'Software & APIs': [['Python', 'python'], ['Django', 'django']],
+  'Power BI / Tableau': [['Power BI', 'power-bi'], ['Tableau', 'tableau']],
+  'Python / R Visualisation': [['Python', 'python'], ['R', 'r']],
+  'BigQuery': [['BigQuery', 'google-bigquery']], 'AI Chatbots': [['OpenAI', 'openai']],
+  'AI Agents': [['OpenAI', 'openai'], ['n8n', 'n8n']]
+};
+const serviceBrandColors = {
+  webflow: '#146EF5', wordpress: '#21759B', zapier: '#FF4A00', react: '#087EA4',
+  angular: '#DD0031', python: '#3776AB', django: '#092E20', java: '#E76F00',
+  supabase: '#248553', 'power-bi': '#BD9100', tableau: '#E97627',
+  'google-bigquery': '#4285F4', r: '#276DC3'
+};
+function ServiceToolCard({ tool }) {
+  return <article className="svc-tool">
+    <div className="svc-tool-brands">{serviceToolBrands[tool.name].map(([name, slug]) => {
+      const Icon = slug === 'r' ? SiR : techIconMap[slug];
+      const image = slug === 'bubble' ? 'https://cdn.worldvectorlogo.com/logos/bubble-io.svg'
+        : slug === 'base44' ? '/brands/services/base44.png'
+        : ['retool', 'n8n', 'cursor', 'lovable'].includes(slug) ? `/brands/services/${slug}.svg` : null;
+      return <div className="svc-tool-brand" key={slug}>
+        <span className="svc-tool-logo" style={{ color: serviceBrandColors[slug] || '#17171b' }}>
+          {image ? <img src={image} alt="" width="28" height="28" loading="lazy" /> : <Icon aria-hidden="true" />}
+        </span><span>{name}</span>
+      </div>;
+    })}</div>
+    <h3>{tool.name}</h3><p>{serviceToolDescriptions[tool.name]}</p>
+  </article>;
+}
+
 function ServicesPage() {
   const titles = ['From idea to working product', 'Give repetitive work a better system', 'Software built for the way you work', 'Make your data useful'];
   const icons = [FiLayers, FiZap, BsCursorText, TbBrandGoogleBigQuery];
@@ -1459,7 +1500,7 @@ function ServicesPage() {
     </section>
     <div className="svc-wrap">{servicesSections.map((section,i)=>{const Icon=icons[i];return <section className="svc-section" id={section.id} key={section.id}>
       <header className="svc-heading"><span className="svc-num">0{i+1}</span><div><p className="svc-eyebrow">{section.label}</p><h2>{titles[i]}</h2><p className="svc-summary">{section.description}</p><Link to="/contact" className="svc-link">Discuss this service ↗</Link></div><Icon className="svc-category-icon" aria-hidden="true" /></header>
-      <div className="svc-tools">{section.tools.map(tool=><article className="svc-tool" key={tool.name}><h3>{tool.name}</h3><p>{serviceToolDescriptions[tool.name]}</p></article>)}</div>
+      <div className="svc-tools">{section.tools.map(tool=><ServiceToolCard tool={tool} key={tool.name} />)}</div>
     </section>})}</div>
     <section className="svc-contact"><div className="svc-wrap"><p className="svc-eyebrow">Have a project in mind?</p><h2>Let's find the right<br />way to build it.</h2><Link to="/contact" className="svc-button">Tell me what you're working on <span>↗</span></Link></div></section>
   </main>;

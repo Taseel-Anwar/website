@@ -4508,3 +4508,14 @@ em { font-style: italic; color: var(--accent-light); }
 .portfolio-section .portfolio-content h2 { overflow-wrap:anywhere; }
 .portfolio-section .portfolio-tech { display:flex; flex-wrap:wrap; }
 @media(max-width:900px) { .portfolio-section .portfolio-item, .portfolio-section .portfolio-item.reverse { grid-template-columns:minmax(0,1fr); gap:28px; padding:48px 0; } .portfolio-section .portfolio-item.reverse .portfolio-visual, .portfolio-section .portfolio-item.reverse .portfolio-content { order:initial; } }
+
+/* Consistent technology cards with original brand marks. */
+.svc .svc-tools { align-items:stretch; }
+.svc .svc-tool { display:flex; flex-direction:column; transition:border-color 160ms ease, background-color 160ms ease; }
+.svc .svc-tool:hover { border-color:#796591; background:#222129; }
+.svc .svc-tool-brands { display:flex; flex-wrap:wrap; align-content:flex-start; gap:12px 16px; min-height:88px; margin-bottom:20px; }
+.svc .svc-tool-brand { display:flex; flex-direction:column; align-items:flex-start; gap:8px; font-size:12px; font-weight:500; color:#d8d6df; }
+.svc .svc-tool-logo { display:grid; place-items:center; width:48px; height:48px; border-radius:12px; background:#fff; border:1px solid #e9e9ed; }
+.svc .svc-tool-logo img, .svc .svc-tool-logo svg { display:block; width:28px; height:28px; object-fit:contain; }
+.svc .svc-tool h3 { font-weight:600; margin-bottom:10px; }
+@media (prefers-reduced-motion:reduce) { .svc .svc-tool { transition:none; } }
