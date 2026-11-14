@@ -818,8 +818,9 @@ function DarkHero() {
                   </div>
                 </div>
 
-                {/* Floating stat chips */}
-                <div className="dh-profile-chip dh-chip-projects" aria-hidden="true">
+                {/* Profile highlights */}
+                <div className="dh-profile-highlights" aria-label="Profile highlights">
+                <div className="dh-profile-chip dh-chip-projects">
                   <div className="dh-profile-chip-icon">🏆</div>
                   <div className="dh-profile-chip-label">
                     <strong>10+ Projects</strong>
@@ -827,7 +828,7 @@ function DarkHero() {
                   </div>
                 </div>
 
-                <div className="dh-profile-chip dh-chip-rating" aria-hidden="true">
+                <div className="dh-profile-chip dh-chip-rating">
                   <div className="dh-profile-chip-icon">⭐</div>
                   <div className="dh-profile-chip-label">
                     <strong>4.9 / 5.0</strong>
@@ -835,12 +836,13 @@ function DarkHero() {
                   </div>
                 </div>
 
-                <div className="dh-profile-chip dh-chip-stack" aria-hidden="true">
+                <div className="dh-profile-chip dh-chip-stack">
                   <div className="dh-profile-chip-icon">⚡</div>
                   <div className="dh-profile-chip-label">
                     <strong>5 Stacks</strong>
                     <span>No-code to full-stack</span>
                   </div>
+                </div>
                 </div>
               </div>
             </div>
