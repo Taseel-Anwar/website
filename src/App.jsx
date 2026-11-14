@@ -465,7 +465,7 @@ function Header() {
     <>
       <nav id="navbar" className={scrolled ? 'scrolled' : ''}>
         <Link to="/" className="nav-logo">
-          <img src="/logo.svg" alt="Taseel Anwar" width="32" height="32" />
+          <img src="/ta-monogram.png" alt="Taseel Anwar" width="32" height="32" />
           <span>Taseel Anwar</span>
         </Link>
 
@@ -731,7 +731,7 @@ function DarkHero() {
         {/* ── Navbar — merged into hero ── */}
         <nav className={`dh-nav${scrolled ? ' dh-nav-scrolled' : ''}`}>
           <div className="dh-nav-left">
-            <img src="/logo.svg" alt="Taseel Anwar" className="dh-nav-logo-img" />
+            <img src="/ta-monogram.png" alt="Taseel Anwar" className="dh-nav-logo-img" />
             <span className="dh-nav-logo-name">Taseel Anwar</span>
           </div>
           <div className="dh-nav-center">
@@ -1829,7 +1829,7 @@ function Footer() {
             <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260503_104800_bc43ae09-f494-43e3-97d7-2f8c1692cfd7.mp4" type="video/mp4" />
           </video>
           <div className="footer-logo">
-            <img src="/logo.svg" alt="Taseel Anwar" className="footer-logo-svg" />
+            <img src="/ta-monogram.png" alt="Taseel Anwar" className="footer-logo-svg" />
             <span className="footer-logo-name">Taseel Anwar</span>
           </div>
           <div className="footer-tagline-container">
@@ -1860,7 +1860,7 @@ function Footer() {
         <div className="footer-right">
           <div className="footer-lucky-graphic">
             <div className="lucky-cube">
-              <img src="/logo.svg" alt="Taseel Anwar" className="lucky-cube-favicon" />
+              <img src="/ta-monogram.png" alt="Taseel Anwar" className="lucky-cube-favicon" />
             </div>
             <div className="lucky-text-row">
               <svg className="lucky-arrow" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">

@@ -1,10 +1,10 @@
-﻿import { useMemo, useState } from 'react';
+import { useMemo, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 function LogoMark() {
   return (
     <div className="lt-logo" aria-hidden="true">
-      <img className="lt-logo-mark" src="/logo.svg" alt="" />
+      <img className="lt-logo-mark" src="/ta-monogram.png" alt="" />
       <span className="lt-logo-text">Taseel Anwar</span>
     </div>
   );
