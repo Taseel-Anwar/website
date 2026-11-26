@@ -794,7 +794,7 @@ function DarkHero() {
             <div className="dh-right">
               <figure className="hero-portrait">
                 <div className="hero-portrait-image">
-                  <img src="/taseel.jpg" alt="Taseel Anwar, web developer and automation specialist" width="600" height="750" fetchPriority="high" />
+                  <img src="/taseel-avatar.png" alt="Taseel Anwar, web developer and automation specialist" width="700" height="592" fetchPriority="high" />
                 </div>
                 <figcaption>
                   <span className="hero-portrait-name">Taseel Anwar</span>
