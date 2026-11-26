@@ -246,7 +246,7 @@ export default function PremiumLetsTalkSection() {
                       disabled={!available}
                       onClick={() => handlePickDate(c.iso)}
                       aria-pressed={active}
-                      aria-label={available ? `Available: ${c.iso}` : `Unavailable: ${c.iso}`}
+                      aria-label={available ? `Suggested: ${c.iso}` : `Not suggested: ${c.iso}`}
                     >
                       {c.day}
                     </button>
@@ -262,7 +262,7 @@ export default function PremiumLetsTalkSection() {
                     <span className="lt-appointment-date">{selectedLabel}</span>
                   </div>
 
-                  <div className="lt-time-grid" role="list" aria-label="Available times">
+                  <div className="lt-time-grid" role="list" aria-label="Suggested times">
                     {timeSlots.map((t) => {
                       const active = t === selectedTime;
                       return (
@@ -285,16 +285,16 @@ export default function PremiumLetsTalkSection() {
                     disabled={!canSend}
                     onClick={handleConfirm}
                   >
-                    Confirm Booking →
+                    Request a call →
                   </button>
 
                   <p className="lt-privacy">
-                    By confirming, you&apos;ll open an email draft. No account required.
+                    This opens an email draft to request a time. Your call is confirmed when I reply.
                   </p>
                 </div>
               ) : (
                 <div className="lt-appointment">
-                  <p className="lt-privacy">No available dates in this month. Try another month.</p>
+                  <p className="lt-privacy">No suggested dates this month. Try another month.</p>
                 </div>
               )}
             </div>

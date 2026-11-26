@@ -1,2 +1,4 @@
-/services /index.html 200
-/portfolio /index.html 200
+/services /services/index.html 200
+/portfolio /portfolio/index.html 200
+/about /about/index.html 200
+/contact /contact/index.html 200

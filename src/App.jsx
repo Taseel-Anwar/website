@@ -1,3 +1,4 @@
+import { pageSeo, siteUrl } from './seo';
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { Link, NavLink, Route, Routes, useLocation } from 'react-router-dom';
 import { FiMail, FiMapPin, FiLayers, FiZap } from 'react-icons/fi';
@@ -109,26 +110,26 @@ function WorkflowLogo({ item }) {
 
 const serviceCards = [
   {
-    title: 'No-Code Solutions',
-    description: 'Bubble.io, Webflow, Retool, WordPress, Lovable, Base44 — launch full products faster than ever.',
+    title: 'No Code Development',
+    description: 'Build websites, customer portals, and business applications with Bubble, Webflow, Retool, WordPress, Lovable, and Base44.',
     link: '/services#nocode',
     slug: 'bubble'
   },
   {
     title: 'Automation',
-    description: 'n8n, Zapier, and AI-native workflows that eliminate repetitive work and connect your business systems.',
+    description: 'Connect your apps and reduce repetitive work with n8n, Zapier, and practical AI automation.',
     link: '/services#automation',
     slug: 'n8n'
   },
   {
     title: 'Code & Vibe Coding',
-    description: 'React, Angular, Python, Django, Java — plus AI-assisted development with Cursor and Claude.',
+    description: 'Develop web applications and APIs with React, Angular, Python, Django, and Java.',
     link: '/services#code',
     slug: 'react'
   },
   {
     title: 'Data & AI',
-    description: 'Power BI, Tableau, BigQuery, Python dashboards and custom intelligence for modern decision-making.',
+    description: 'Turn business data into useful dashboards, reports, and AI tools with Power BI, Tableau, BigQuery, and Python.',
     link: '/services#data',
     slug: 'power-bi'
   }
@@ -137,19 +138,19 @@ const serviceCards = [
 const featureItems = [
   {
     title: 'Fast to market',
-    description: 'MVPs and full products delivered in days to weeks, not months.'
+    description: 'Start with the features your users need and build from there.'
   },
   {
-    title: 'Budget-efficient',
-    description: 'Modern tooling slashes development cost without sacrificing quality.'
+    title: 'Thoughtful use of your budget',
+    description: 'Choose tools that fit the scope, timeline, and budget of your project.'
   },
   {
     title: 'Scalable solutions',
-    description: 'Built to grow — from startup MVP to enterprise-grade platform.'
+    description: 'Create a foundation that can grow with your product and your team.'
   },
   {
-    title: 'AI-native approach',
-    description: 'We bake intelligence in from day one — chatbots, automation, analytics.'
+    title: 'Practical AI',
+    description: 'Use AI for tasks where it adds value, from support to data analysis.'
   }
 ];
 
@@ -187,9 +188,9 @@ const testimonials = [
 const servicesSections = [
   {
     id: 'nocode',
-    label: 'No-Code Solutions',
+    label: 'No Code Development',
     title: 'Build without code. Launch without limits.',
-    description: 'We are specialists in leading no-code platforms, chosen strategically for your specific use case.',
+    description: 'I build customer portals, marketplaces, internal tools, and websites using platforms suited to each project.',
     icon: '◈',
     tools: [
       { name: 'Bubble.io', slug: 'bubble' },
@@ -204,12 +205,12 @@ const servicesSections = [
     id: 'automation',
     label: 'Automation Services',
     title: 'Your business, running on autopilot.',
-    description: 'We build automation pipelines that connect tools, trigger events, transform data, and route information automatically.',
+    description: 'I connect your apps, APIs, and data with n8n and Zapier so routine tasks move forward with less manual work.',
     icon: '⟳',
     tools: [
       { name: 'n8n', slug: 'n8n' },
       { name: 'Zapier', slug: 'zapier' },
-      { name: 'AI-powered Automation', slug: 'openai' },
+      { name: 'AI Automation', slug: 'openai' },
       { name: 'Custom Pipelines', slug: 'power-bi' }
     ],
     accent: true
@@ -217,8 +218,8 @@ const servicesSections = [
   {
     id: 'code',
     label: 'Code & Vibe Coding',
-    title: 'Full-stack development at AI-assisted velocity.',
-    description: 'We combine traditional engineering with modern AI development tools to ship production-ready code in a fraction of the time.',
+    title: 'Web application development',
+    description: 'I develop web applications, APIs, and SaaS products with React, Python, Django, and other tools chosen for your requirements.',
     icon: '⌥',
     tools: [
       { name: 'React / Angular', slug: 'react' },
@@ -234,7 +235,7 @@ const servicesSections = [
     id: 'data',
     label: 'Data & AI Services',
     title: 'Turn your data into decisions and products.',
-    description: 'We help businesses visualise data clearly and embed AI directly into workflows — from dashboards to custom agents.',
+    description: 'I create business dashboards, data workflows, chatbots, and AI agents that help teams find and use information.',
     icon: '◉',
     tools: [
       { name: 'Power BI / Tableau', slug: 'power-bi' },
@@ -249,15 +250,15 @@ const servicesSections = [
 
 const portfolioItems = [
   {
-    number: '01', title: 'CloudOps — DevOps Monitor', role: 'Full-Stack Development',
-    description: 'A DevOps monitoring SaaS bringing infrastructure health, CI/CD pipelines, uptime, and incident diagnosis into one workspace. Includes a Gemini assistant and team-level data isolation with Supabase.',
+    number: '01', title: 'CloudOps DevOps Monitor', role: 'Web Application Development',
+    description: 'A DevOps monitoring SaaS bringing infrastructure health, CI/CD pipelines, uptime, and incident diagnosis into one workspace. Includes a Gemini assistant and data isolation for each team with Supabase.',
     tags: ['Next.js', 'Vercel', 'Gemini', 'Supabase'],
-    outcome: 'Service health dashboards, deployment alerts, and AI-assisted incident investigation.',
+    outcome: 'Service health dashboards, deployment alerts, and AI supported incident investigation.',
     image: '/portfolio/cloudops.png', gallery: ['/portfolio/cloudops.png', '/portfolio/cloudops-detail.png'],
     source: 'https://www.upwork.com/freelancers/~01af62dd25502a2237?p=2082831555716149248'
   },
   {
-    number: '02', title: 'FinPulse — Finance Dashboard', role: 'Full-Stack Development',
+    number: '02', title: 'FinPulse Finance Dashboard', role: 'Web Application Development',
     description: 'A finance dashboard bringing revenue, expenses, and subscriptions together. Stripe webhooks support MRR and churn tracking, with interactive charts and a Gemini assistant for spending insights.',
     tags: ['Next.js', 'Stripe', 'Gemini', 'AWS'],
     outcome: 'Revenue reporting, subscription tracking, and alerts for renewals and budget thresholds.',
@@ -265,7 +266,7 @@ const portfolioItems = [
     source: 'https://www.upwork.com/freelancers/~01af62dd25502a2237?p=2082830946682236928'
   },
   {
-    number: '03', title: 'SkillForge', role: 'Full-Stack Development',
+    number: '03', title: 'SkillForge', role: 'Web Application Development',
     description: 'An EdTech SaaS combining a learner portal and instructor administration. Includes Stripe checkout, Mux video lessons, a Gemini AI tutor, timed quizzes, progress tracking, and completion certificates.',
     tags: ['Next.js', 'TypeScript', 'Tailwind CSS', 'Gemini', 'SendGrid'],
     outcome: 'Course delivery, learner progress, and instructor analytics in one product.',
@@ -274,17 +275,17 @@ const portfolioItems = [
 
   {
     number: '01',
-    title: 'Greenlight Athletics — AthletIQ',
+    title: 'Greenlight Athletics AthletIQ',
     role: 'Bubble Application Development',
     image: '/portfolio/greenlight.jpg', source: 'https://greenlightathletics.com/', sourceLabel: 'Visit project',
-    description: 'A centralised marketplace for local sports programs, camps, and verified athletic coaches — designed for parents and community organisers.',
-    tags: ['Bubble.io', 'Marketplace', 'No-Code'],
+    description: 'A marketplace for local sports programs, camps, and verified coaches, designed for parents and community organisers.',
+    tags: ['Bubble.io', 'Marketplace', 'No Code'],
     outcome: 'Full marketplace platform delivered rapidly with a polished user experience.'
   },
   
   {
     number: '03',
-    title: 'Tradernode — Financial Management MVP',
+    title: 'Tradernode Financial Management MVP',
     image: '/portfolio/tradernode.png', source: 'https://tradernode.bubbleapps.io', sourceLabel: 'Visit project',
     role: 'SaaS Platform for Prop Traders',
     description: 'A clean trading dashboard with P&L analytics, payout tracking, and portfolio monitoring for active traders.',
@@ -292,33 +293,33 @@ const portfolioItems = [
     outcome: 'A fully functional financial MVP delivered without traditional development overhead.'
   },
   
-{"title": "Rent Referee — Rental Review Platform", "role": "Bubble Application Development", "description": "A rental review platform with map-based property search, reviews, and an onboarding flow for different user roles.", "tags": ["Bubble.io", "Stripe", "Maps"], "outcome": "Property search, rental reviews, and responsive account onboarding.", "image": "/portfolio/rent-referee.jpg"},
-{"title": "Elvasma — Faith Quiz App", "role": "Bubble Application Development", "description": "A mobile-first Bible study application with interactive faith quizzes, reading guides, and progress tracking. Onboarding connects Shopify purchases with account access.", "tags": ["Bubble.io", "Shopify", "n8n"], "outcome": "Faith quizzes, study guides, progress tracking, and controlled onboarding.", "image": "/portfolio/elvasma.png", "source": "https://app.elvasma.com", "sourceLabel": "Visit project"},
-{"title": "Calendar-to-Voice Interview Automation", "role": "n8n Workflow Development", "description": "A Google Calendar workflow that filters interview events, extracts Google Meet details, validates meeting data, and prepares outbound calls through VAPI.", "tags": ["n8n", "Google Calendar", "VAPI"], "outcome": "Calendar triggers, meeting validation, outbound calls, and missing-data handling.", "image": "/portfolio/n8n-1.jpg"},
-{"title": "AI Agent & Structured Data Workflow", "role": "n8n Workflow Development", "description": "A webhook-driven AI workflow connecting an OpenAI chat model with a structured output parser, custom code steps, and HTTP requests.", "tags": ["n8n", "OpenAI", "Webhooks"], "outcome": "AI processing, structured responses, and item-by-item API handoffs.", "image": "/portfolio/n8n-2.jpg"},
-{"title": "Voice AI Platform Automation", "role": "n8n Workflow Development", "description": "A collection of connected workflows for voice assistant operations, including phone numbers, assistant setup, call logs, calendar data, and knowledge-base updates.", "tags": ["n8n", "VAPI", "Supabase"], "outcome": "Voice assistant management, call-log updates, and data synchronization.", "image": "/portfolio/n8n-3.jpg"}
+{"title": "Rent Referee Rental Review Platform", "role": "Bubble Application Development", "description": "A rental review platform with property search on a map, reviews, and an onboarding flow for different user roles.", "tags": ["Bubble.io", "Stripe", "Maps"], "outcome": "Property search, rental reviews, and responsive account onboarding.", "image": "/portfolio/rent-referee.jpg"},
+{"title": "Elvasma Faith Quiz App", "role": "Bubble Application Development", "description": "A mobile Bible study application with interactive faith quizzes, reading guides, and progress tracking. Onboarding connects Shopify purchases with account access.", "tags": ["Bubble.io", "Shopify", "n8n"], "outcome": "Faith quizzes, study guides, progress tracking, and controlled onboarding.", "image": "/portfolio/elvasma.png", "source": "https://app.elvasma.com", "sourceLabel": "Visit project"},
+{"title": "Calendar to Voice Interview Automation", "role": "n8n Workflow Development", "description": "A Google Calendar workflow that filters interview events, extracts Google Meet details, validates meeting data, and prepares outbound calls through VAPI.", "tags": ["n8n", "Google Calendar", "VAPI"], "outcome": "Calendar triggers, meeting validation, outbound calls, and handling missing data.", "image": "/portfolio/n8n-1.jpg"},
+{"title": "AI Agent & Structured Data Workflow", "role": "n8n Workflow Development", "description": "An AI workflow using webhooks connecting an OpenAI chat model with a structured output parser, custom code steps, and HTTP requests.", "tags": ["n8n", "OpenAI", "Webhooks"], "outcome": "AI processing, structured responses, and API handoffs for each item.", "image": "/portfolio/n8n-2.jpg"},
+{"title": "Voice AI Platform Automation", "role": "n8n Workflow Development", "description": "A collection of connected workflows for voice assistant operations, including phone numbers, assistant setup, call logs, calendar data, and knowledge base updates.", "tags": ["n8n", "VAPI", "Supabase"], "outcome": "Voice assistant management, call log updates, and data synchronization.", "image": "/portfolio/n8n-3.jpg"}
 ];
 
 const aboutPillars = [
   {
     number: '01',
     title: 'Right tool, right problem',
-    description: 'We prescribe the most efficient path based on your budget, timeline, and growth goals.'
+    description: 'I recommend an approach based on your goals, budget, and timeline.'
   },
   {
     number: '02',
     title: 'Modern over traditional',
-    description: 'Modern tooling often produces better outcomes for business problems — faster and cheaper.'
+    description: 'I choose from visual platforms and custom code based on what the project needs.'
   },
   {
     number: '03',
     title: 'Speed without sacrifice',
-    description: 'Faster delivery doesn\'t mean lower quality. It means clear scope and better tooling.'
+    description: 'A clear scope and thoughtful planning help keep projects moving.'
   },
   {
     number: '04',
     title: 'Low cost, high impact',
-    description: 'Enterprise-level thinking delivered with startup-friendly budgets.'
+    description: 'I focus on the features that deliver the most value for your budget.'
   }
 ];
 
@@ -328,15 +329,15 @@ const stackLayers = [
     tools: 'Claude · n8n · Zapier · LLMs · Custom Agents'
   },
   {
-    label: 'No-Code / Low-Code',
+    label: 'No Code and Low Code',
     tools: 'Bubble.io · Webflow · Retool · Lovable · Base44 · WordPress'
   },
   {
     label: 'Vibe Coding',
-    tools: 'Cursor · Claude · v0 · AI-assisted development'
+    tools: 'Cursor · Claude · v0 · AI assisted development'
   },
   {
-    label: 'Full-Stack Code',
+    label: 'Web Development',
     tools: 'React · Angular · Python · Django · Java · Supabase'
   },
   {
@@ -354,17 +355,17 @@ const valueCards = [
   {
     icon: '◎',
     title: 'Honesty over hype',
-    description: 'We recommend the right solution, not the most expensive one.'
+    description: 'I explain the options clearly so you can make an informed choice.'
   },
   {
     icon: '∞',
     title: 'Always learning',
-    description: 'The modern stack evolves weekly. We stay current so our clients benefit from the latest tools.'
+    description: 'I continue learning and choose established tools that suit the work.'
   },
   {
     icon: '◈',
-    title: 'Client-first delivery',
-    description: 'We communicate clearly, deliver on time, and stay responsive throughout every engagement.'
+    title: 'Clear communication',
+    description: 'I keep you informed about progress, decisions, and next steps.'
   }
 ];
 
@@ -373,14 +374,14 @@ const contactCards = [
     Icon: FiMail,
     title: 'Email',
     content: 'taseel.work@gmail.com',
-    secondary: 'We respond within 24 hours',
+    secondary: 'Send me your project details',
     href: 'mailto:taseel.work@gmail.com'
   },
   {
     Icon: SiWhatsapp,
     title: 'WhatsApp',
     content: '+92 321 430 8899',
-    secondary: 'Fastest way to reach us',
+    secondary: 'Message me on WhatsApp',
     href: 'https://wa.me/923214308899'
   },
   {
@@ -392,7 +393,7 @@ const contactCards = [
   {
     Icon: SiUpwork,
     title: 'Upwork',
-    content: 'View our profile',
+    content: 'View my profile',
     secondary: 'Verified reviews & portfolio',
     href: 'https://www.upwork.com/freelancers/~01af62dd25502a2237'
   }
@@ -778,12 +779,11 @@ function DarkHero() {
             {/* Left */}
             <div className="dh-left">
               <h1 className="dh-headline">
-                Build Smarter.<br />
-                Ship{' '}
-                <span className="dh-headline-em">Faster.</span>
+                Web apps and AI automation<br />
+                <span className="dh-headline-em">built for your business.</span>
               </h1>
               <p className="dh-subtitle">
-                I'm Taseel Anwar — a full-stack developer & no-code specialist based in Lahore. I turn ideas into live digital products using modern tools: AI automation, no-code platforms, and scalable web engineering.
+                I'm Taseel Anwar, a developer based in Lahore. I build Bubble apps, React and Python products, and n8n automations for businesses and founders worldwide.
               </p>
               <div className="dh-ctas">
                 <Link to="/portfolio" className="dh-cta-filled">View My Work</Link>
@@ -802,14 +802,14 @@ function DarkHero() {
                   <div className="dh-profile-glow" aria-hidden="true" />
                   <img
                     src="/taseel.jpg"
-                    alt="Taseel Anwar — Full-Stack Developer"
+                    alt="Taseel Anwar, web application and automation developer"
                     className="dh-profile-photo"
                   />
                   {/* Name plate over photo */}
                   <div className="dh-profile-nameplate">
                     <div className="dh-profile-nameplate-text">
                       <h3>Taseel Anwar</h3>
-                      <span>Full-Stack Dev · No-Code · AI</span>
+                      <span>Web Development · Automation · AI</span>
                     </div>
                     <div className="dh-profile-badge">
                       <span className="dh-profile-dot" />
@@ -840,7 +840,7 @@ function DarkHero() {
                   <div className="dh-profile-chip-icon">⚡</div>
                   <div className="dh-profile-chip-label">
                     <strong>5 Stacks</strong>
-                    <span>No-code to full-stack</span>
+                    <span>Visual tools and custom code</span>
                   </div>
                 </div>
                 </div>
@@ -982,9 +982,9 @@ function HomePage() {
         <div className="container stack-cluster-grid">
           <div className="stack-copy">
             <span className="workflow-kicker">LIVE WORKFLOW / 01</span>
-            <h2 className="section-title">I use AI throughout my work</h2>
+            <h2 className="section-title">AI tools that support your business</h2>
             <p className="stack-copy-text">
-              I integrate AI into every part of my process — and directly into the products I build for clients.
+              From customer support to data processing, I build AI features that fit the way your team works.
             </p>
             <Link to="/services" className="stack-copy-cta">
               Learn more about AI products →
@@ -1027,11 +1027,10 @@ function HomePage() {
           <div className="what-we-do-head">
             <SectionLabel>What We Do</SectionLabel>
             <h2 className="what-we-do-title">
-              Premium delivery, delivered in <span className="what-we-do-title-em">real outcomes</span>
+              Services built around <span className="what-we-do-title-em">your goals</span>
             </h2>
             <p className="what-we-do-sub">
-              4.9/5 client rating • 10+ projects/apps delivered • Verified Upwork clients — built with modern no-code, AI automation,
-              and scalable engineering.
+              Explore web development, Bubble applications, AI automation, and data tools built around real business needs.
             </p>
           </div>
 
@@ -1051,12 +1050,10 @@ function HomePage() {
               <SectionLabel>Why Taseel</SectionLabel>
               <h2>The right tool for<br />the right problem.</h2>
               <p>
-                Traditional tech stacks are expensive and slow. I use the modern toolkit — no-code platforms, AI
-                assistants, automation layers — to get you there in weeks, not quarters.
+                Every project has different needs. I combine visual development, custom code, and automation to create a solution that fits your goals and budget.
               </p>
               <p>
-                I don't sell you a hammer and call everything a nail. I diagnose your problem first and prescribe the
-                fastest solution.
+                We start by understanding your users, your workflow, and the result you want to achieve.
               </p>
               <Link to="/about" className="btn-ghost">
                 My Philosophy →
@@ -1113,7 +1110,7 @@ function TestimonialCards() {
 
   return (
     <div className="testimonials-showcase">
-      <p className="testimonials-kicker">Fast-moving founders get results with Taseel Anwar.</p>
+      <p className="testimonials-kicker">Feedback from clients on Upwork.</p>
       <div className="testimonials-grid">
         {testimonials.slice(0, 3).map((item, index) => {
           const detail = cardDetails[index % cardDetails.length];
@@ -1123,7 +1120,7 @@ function TestimonialCards() {
               <img className="testi-photo" src={detail.avatar} alt={`${item.author} placeholder portrait`} loading="lazy" />
               <div className="testi-meta">
                 <h3>{item.author}</h3>
-                <span>{detail.role}</span>
+                <span>{item.role}</span>
               </div>
               <p className="testi-quote">"{item.quote}"</p>
               <div className="testi-author">
@@ -1136,7 +1133,7 @@ function TestimonialCards() {
       </div>
       <div className="upwork-badge">
         <a href="https://www.upwork.com/freelancers/~01af62dd25502a2237" target="_blank" rel="noreferrer">
-          View our Upwork profile â†’
+          View my Upwork profile →
         </a>
       </div>
     </div>
@@ -1197,7 +1194,7 @@ function TestimonialCarousel() {
       </div>
       <div className="upwork-badge">
         <a href="https://www.upwork.com/freelancers/~01af62dd25502a2237" target="_blank" rel="noreferrer">
-          View our Upwork profile →
+          View my Upwork profile →
         </a>
       </div>
     </div>
@@ -1212,7 +1209,7 @@ const whatWeDoCards = [
     meta: 'Connected flows',
     title: 'AI Automation systems that run the routine work for you',
     description:
-      'Triggers, agents, and smart handoffs that keep operations moving while your team focuses on higher-value work.',
+      'Triggers, agents, and smart handoffs that keep operations moving while your team focuses on more valuable work.',
     sizeClass: 'size-xl',
     offsetClass: 'offset-a',
     visualType: 'automation'
@@ -1221,10 +1218,10 @@ const whatWeDoCards = [
     id: 'card-2',
     to: '/services#nocode',
     category: 'Bubble Development',
-    meta: 'Floating screens',
+    meta: 'Bubble applications',
     title: 'Bubble Development for fast, flexible product launches',
     description:
-      'Wireframes, app views, and interactive product screens arranged to feel polished from the first click.',
+      'Build marketplaces, customer portals, and applications tailored to your users.',
     sizeClass: 'size-lg',
     offsetClass: 'offset-b',
     visualType: 'bubble'
@@ -1233,10 +1230,10 @@ const whatWeDoCards = [
     id: 'card-3',
     to: '/services#automation',
     category: 'Automation',
-    meta: 'Animated links',
-    title: 'Automation pipelines with visible logic and movement',
+    meta: 'Connected workflows',
+    title: 'Automation that connects your apps and data',
     description:
-      'Connected nodes, flowing lines, and smart routing that make the workflow easy to understand at a glance.',
+      'Connect business tools, move data between systems, and reduce manual tasks.',
     sizeClass: 'size-md',
     offsetClass: 'offset-c',
     visualType: 'flow'
@@ -1245,10 +1242,10 @@ const whatWeDoCards = [
     id: 'card-4',
     to: '/services#data',
     category: 'Webflow',
-    meta: 'Browser design',
-    title: 'Webflow builds with structure, grids, and premium motion',
+    meta: 'Web design',
+    title: 'Webflow websites designed for your business',
     description:
-      'A browser-window visual with design grids, layout blocks, and production-ready presentation energy.',
+      'A website with a clear structure and responsive layouts.',
     sizeClass: 'size-md',
     offsetClass: 'offset-d',
     visualType: 'webflow'
@@ -1256,11 +1253,11 @@ const whatWeDoCards = [
   {
     id: 'card-5',
     to: '/portfolio',
-    category: 'Full-Stack',
+    category: 'Web Applications',
     meta: 'Frontend to backend',
-    title: 'Full-Stack applications with clear API connections',
+    title: 'Web applications connected to your business tools',
     description:
-      'Front-end interfaces, backend services, and data routes tied together through a strong visual system.',
+      'Interfaces, backend services, and integrations built to support your product.',
     sizeClass: 'size-lg',
     offsetClass: 'offset-e',
     visualType: 'stack'
@@ -1270,9 +1267,9 @@ const whatWeDoCards = [
     to: '/services#automation',
     category: 'Startup MVP',
     meta: 'Launch ready',
-    title: 'Startup MVPs designed around launch momentum',
+    title: 'MVP development for your first launch',
     description:
-      'A product-journey visual with a rocket launch feel and a roadmap that signals progress from idea to release.',
+      'A focused first version of your product, built around the features your users need.',
     sizeClass: 'size-md',
     offsetClass: 'offset-f',
     visualType: 'mvp'
@@ -1432,16 +1429,16 @@ const serviceToolDescriptions = {
   'Bubble.io': 'Marketplaces and web applications built visually.',
   'Webflow': 'Responsive websites with a manageable content system.',
   'Retool': 'Internal tools connected to your business data.',
-  'WordPress': 'Content-driven websites your team can maintain.',
-  'Lovable / Base44': 'AI-assisted prototypes and application development.',
+  'WordPress': 'Content websites your team can maintain.',
+  'Lovable / Base44': 'AI assisted prototypes and application development.',
   'n8n': 'Flexible workflows connecting APIs and business tools.',
   'Zapier': 'App integrations that handle repetitive tasks.',
-  'AI-powered Automation': 'AI steps integrated into everyday business workflows.',
+  'AI Automation': 'AI steps integrated into everyday business workflows.',
   'Custom Pipelines': 'Data transformation and routing between systems.',
   'React / Angular': 'Interactive frontends for web applications.',
-  'Python / Django': 'Backend services and database-driven applications.',
+  'Python / Django': 'Backend services and database applications.',
   'Java': 'Custom software and backend development.',
-  'Vibe Coding': 'AI-assisted development guided by engineering judgment.',
+  'Vibe Coding': 'AI assisted development guided by engineering judgment.',
   'Web Apps & SaaS': 'Custom applications built around your product requirements.',
   'Software & APIs': 'Application logic and integrations between services.',
   'Power BI / Tableau': 'Business dashboards that make data easier to read.',
@@ -1456,7 +1453,7 @@ const serviceToolBrands = {
   'Retool': [['Retool', 'retool']], 'WordPress': [['WordPress', 'wordpress']],
   'Lovable / Base44': [['Lovable', 'lovable'], ['Base44', 'base44']],
   'n8n': [['n8n', 'n8n']], 'Zapier': [['Zapier', 'zapier']],
-  'AI-powered Automation': [['OpenAI', 'openai']],
+  'AI Automation': [['OpenAI', 'openai']],
   'Custom Pipelines': [['Python', 'python'], ['n8n', 'n8n']],
   'React / Angular': [['React', 'react'], ['Angular', 'angular']],
   'Python / Django': [['Python', 'python'], ['Django', 'django']],
@@ -1497,7 +1494,7 @@ function ServicesPage() {
   return <main className="svc">
     <section className="svc-hero svc-wrap">
       <p className="svc-eyebrow">Services / Taseel Anwar</p>
-      <div className="svc-intro"><h1>Good software.<br /><span>Less busywork.</span></h1><div><p>I build web products, connect your tools, and turn data into something you can act on.</p><Link className="svc-button" to="/contact">Let's talk about your project <span>↗</span></Link></div></div>
+      <div className="svc-intro"><h1>Web development and<br /><span>automation services.</span></h1><div><p>I build web applications, automate workflows, and create data tools for founders and businesses.</p><Link className="svc-button" to="/contact">Let's talk about your project <span>↗</span></Link></div></div>
       <nav className="svc-index" aria-label="Service categories">{servicesSections.map((section,i)=><a href={`#${section.id}`} key={section.id}><span>0{i+1}</span>{section.label}<span>↓</span></a>)}</nav>
     </section>
     <div className="svc-wrap">{servicesSections.map((section,i)=>{const Icon=icons[i];return <section className="svc-section" id={section.id} key={section.id}>
@@ -1514,7 +1511,7 @@ function PortfolioItem({ item, reverse }) {
       <div className={`portfolio-visual${reverse ? ' reverse' : ''}`}>
         {item.image ? <a className="portfolio-real-image" href={item.image} target="_blank" rel="noreferrer" aria-label={`View ${item.title} screenshot`}><img src={item.image} alt={`${item.title} project screenshot`} loading="lazy" /></a> : <div className="portfolio-placeholder">
           <div className="placeholder-label">Thumbnail coming soon</div>
-          <p>Upload project image later.</p>
+          <p>Project preview coming soon.</p>
         </div>}
         <div className="portfolio-tags-visual">
           {item.tags.map((tag) => (
@@ -1548,8 +1545,8 @@ function PortfolioPage() {
     <main>
       <PageHero
         label="Our Work"
-        title="Projects that prove my approach."
-        subtitle="Real problems solved with the right tool — not the most expensive one."
+        title="Web apps and automation projects"
+        subtitle="Explore Bubble apps, SaaS products, dashboards, and n8n workflows built for real business needs."
       />
       <section className="portfolio-section">
         <div className="container">
@@ -1578,19 +1575,17 @@ function AboutPage() {
     <main>
       <PageHero
         label="About Me"
-        title="I close the gap between idea and live product."
-        subtitle="Lahore-based. Globally delivered. I believe the best solution isn't always the most complex one."
+        title="Meet Taseel Anwar, developer and automation specialist"
+        subtitle="Based in Lahore, I work with founders and businesses worldwide to turn ideas into useful digital products."
       />
       <section className="about-mission">
         <div className="container">
           <div className="mission-inner">
             <div className="mission-quote">
               <blockquote>
-                People today need to run an idea as fast as possible. Traditional tech stacks require more budget and
-                more time than most businesses have. We provide the right solution for the right problem — using modern
-                tools that make development fast, efficient, and accessible.
+                I help businesses turn ideas into working software. Each project starts with a clear understanding of the problem, then moves forward with tools that fit the people who will use it.
               </blockquote>
-              <cite>— Taseel Anwar, Lahore</cite>
+              <cite>Taseel Anwar, Lahore</cite>
             </div>
             <div className="mission-pillars">
               {aboutPillars.map((pillar) => (
@@ -1619,15 +1614,14 @@ function AboutPage() {
             ))}
           </div>
           <p className="stack-caption">
-            Most developers specialise in one layer. I operate across all five — which means I choose the optimal
-            approach for your specific problem rather than defaulting to what I know.
+            I work across interfaces, applications, automation, and data. That breadth helps me choose a suitable approach for each project.
           </p>
         </div>
       </section>
       <section className="values-section">
         <div className="container">
-          <SectionLabel>Our Values</SectionLabel>
-          <h2 className="section-title">What we believe</h2>
+          <SectionLabel>My Values</SectionLabel>
+          <h2 className="section-title">How I work</h2>
           <div className="values-grid">
             {valueCards.map((card) => (
               <div key={card.title} className="value-card">
@@ -1642,8 +1636,8 @@ function AboutPage() {
       <section className="cta-banner">
         <div className="container">
           <div className="cta-inner">
-            <h2>Work with a team that thinks differently.</h2>
-            <p>We'd love to hear about your project, your problem, or just your idea.</p>
+            <h2>Let's discuss your project.</h2>
+            <p>Tell me what you want to build or improve, and we can discuss the next step.</p>
             <Link to="/contact" className="btn-primary btn-lg">
               Let's Connect →
             </Link>
@@ -1665,24 +1659,24 @@ function ContactPage() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    const subject = `Project inquiry from ${formState.name}`;
+    const body = [`Name: ${formState.name}`, `Email: ${formState.email}`, `Service: ${formState.service || 'Not specified'}`, `Budget: ${formState.budget || 'Not specified'}`, '', formState.message].join('\n');
+    window.location.href = `mailto:taseel.work@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
     setSent(true);
-    setTimeout(() => {
-      setFormState({ name: '', email: '', service: '', budget: '', message: '' });
-    }, 1000);
   };
 
   return (
     <main>
       <PageHero
         label="Get in Touch"
-        title="Let's build something extraordinary."
-        subtitle="Whether you have a clear brief or just a rough idea, we'd love to hear it. We'll come back with clarity."
+        title="Tell me about your project."
+        subtitle="Looking for a Bubble developer, web application, or automation? Share your goals and we can discuss the right approach."
       />
       <section className="contact-section">
         <div className="container">
           <div className="contact-inner">
             <div className="contact-form-wrap">
-              <h2>Send us a message</h2>
+              <h2>Send me a message</h2>
               <form className="contact-form" onSubmit={handleSubmit}>
                 <div className="form-row">
                   <div className="form-group">
@@ -1714,13 +1708,13 @@ function ContactPage() {
                   <label htmlFor="service">Service Interested In</label>
                   <select id="service" name="service" value={formState.service} onChange={handleChange}>
                     <option value="">Select a service...</option>
-                    <option>No-Code Solution (Bubble.io / Webflow / Retool)</option>
+                    <option>No Code Development (Bubble.io / Webflow / Retool)</option>
                     <option>Automation (n8n / Zapier / AI workflows)</option>
                     <option>Web / App Development (React / Django / Python)</option>
                     <option>Data Visualisation (Power BI / Tableau / BigQuery)</option>
                     <option>AI Chatbot or Agent</option>
-                    <option>Vibe Coding / AI-Assisted Development</option>
-                    <option>Not sure — need advice</option>
+                    <option>Vibe Coding / AI Assisted Development</option>
+                    <option>Not sure, I need advice</option>
                   </select>
                 </div>
                 <div className="form-group">
@@ -1728,33 +1722,33 @@ function ContactPage() {
                   <select id="budget" name="budget" value={formState.budget} onChange={handleChange}>
                     <option value="">Select a range...</option>
                     <option>Under $1,000</option>
-                    <option>$1,000 – $5,000</option>
-                    <option>$5,000 – $15,000</option>
-                    <option>$15,000 – $50,000</option>
+                    <option>$1,000 to $5,000</option>
+                    <option>$5,000 to $15,000</option>
+                    <option>$15,000 to $50,000</option>
                     <option>$50,000+</option>
                     <option>Let's discuss</option>
                   </select>
                 </div>
                 <div className="form-group">
-                  <label htmlFor="message">Tell us about your project</label>
+                  <label htmlFor="message">Tell me about your project</label>
                   <textarea
                     id="message"
                     name="message"
                     rows="5"
-                    placeholder="Describe your idea, problem, or goal. The more detail the better — but a rough sketch is fine too."
+                    placeholder="Describe your idea, the problem you want to solve, and any details you already have."
                     required
                     value={formState.message}
                     onChange={handleChange}
                   />
                 </div>
                 <button type="submit" className="btn-primary btn-full">
-                  {sent ? 'Message Sent ✓' : 'Send Message →'}
+                  {sent ? 'Open email draft again' : 'Continue to email →'}
                 </button>
-                {sent && <div className="form-success">✓ Message sent! We'll get back to you within 24 hours.</div>}
+                {sent && <div className="form-success">Your email app will open with your message. Please send it from there.</div>}
               </form>
             </div>
             <div className="contact-info">
-              <h2>Other ways to reach us</h2>
+              <h2>Other ways to get in touch</h2>
               {contactCards.map(({ Icon, title, content, secondary, href }) => (
                 <div key={title} className="contact-card">
                   <div className="contact-card-icon">
@@ -1774,7 +1768,7 @@ function ContactPage() {
                 </div>
               ))}
               <div className="social-links">
-                <h4>Follow Us</h4>
+                <h4>Follow Me</h4>
                 <div className="social-grid">
                   {socialLinks.map(({ label, href, Icon }) => (
                     <a key={label} href={href} target="_blank" rel="noreferrer" className="social-btn">
@@ -1786,8 +1780,8 @@ function ContactPage() {
               <div className="response-note">
                 <div className="rn-icon">⏱</div>
                 <div>
-                  <strong>Typical response time: &lt; 12 hours</strong>
-                  <p>We take every inquiry seriously and respond thoughtfully to every message.</p>
+                  <strong>Let’s start a conversation</strong>
+                  <p>Share a few details about your project and I will get back to you.</p>
                 </div>
               </div>
             </div>
@@ -1836,7 +1830,7 @@ function Footer() {
           </div>
           <div className="footer-tagline-container">
             <p className="footer-tagline">
-              Full-stack developer & no-code specialist,<br /><span>building fast, modern digital products.</span>
+              Web developer and automation specialist,<br /><span>building fast, modern digital products.</span>
             </p>
           </div>
           <div className="footer-social-row">
@@ -1885,7 +1879,7 @@ function Footer() {
               </div>
               <div className="footer-col">
                 <div className="footer-col-title">Services</div>
-                <a href="/services#nocode">No-Code</a>
+                <a href="/services#nocode">No Code</a>
                 <a href="/services#automation">Automation</a>
                 <a href="/services#code">Development</a>
                 <a href="/services#data">Data &amp; AI</a>
@@ -1932,6 +1926,33 @@ export default function App() {
   const location = useLocation();
   const isHome = location.pathname === '/';
   useScrollTop();
+
+  useEffect(() => {
+    const path = location.pathname.replace(/\/$/, '') || '/';
+    const seo = pageSeo[path];
+    if (!seo) return;
+    document.title = seo.title;
+    const setMeta = (selector, attribute, name, content) => {
+      let element = document.head.querySelector(selector);
+      if (!element) {
+        element = document.createElement('meta');
+        element.setAttribute(attribute, name);
+        document.head.appendChild(element);
+      }
+      element.setAttribute('content', content);
+    };
+    setMeta('meta[name="description"]', 'name', 'description', seo.description);
+    setMeta('meta[property="og:title"]', 'property', 'og:title', seo.title);
+    setMeta('meta[property="og:description"]', 'property', 'og:description', seo.description);
+    setMeta('meta[property="og:url"]', 'property', 'og:url', `${siteUrl}${path === '/' ? '/' : path}`);
+    let canonical = document.querySelector('link[rel="canonical"]');
+    if (!canonical) {
+      canonical = document.createElement('link');
+      canonical.rel = 'canonical';
+      document.head.appendChild(canonical);
+    }
+    canonical.href = `${siteUrl}${path === '/' ? '/' : path}`;
+  }, [location.pathname]);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
