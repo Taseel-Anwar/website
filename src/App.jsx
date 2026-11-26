@@ -791,60 +791,16 @@ function DarkHero() {
               </div>
             </div>
 
-            {/* Right — profile photo card */}
             <div className="dh-right">
-              <div className="dh-profile-card">
-                {/* Outer decorative ring */}
-                <div className="dh-profile-ring" aria-hidden="true" />
-
-                {/* The photo frame */}
-                <div className="dh-profile-frame">
-                  <div className="dh-profile-glow" aria-hidden="true" />
-                  <img
-                    src="/taseel.jpg"
-                    alt="Taseel Anwar, web application and automation developer"
-                    className="dh-profile-photo"
-                  />
-                  {/* Name plate over photo */}
-                  <div className="dh-profile-nameplate">
-                    <div className="dh-profile-nameplate-text">
-                      <h3>Taseel Anwar</h3>
-                      <span>Web Development · Automation · AI</span>
-                    </div>
-                    <div className="dh-profile-badge">
-                      <span className="dh-profile-dot" />
-                      Open to work
-                    </div>
-                  </div>
+              <figure className="hero-portrait">
+                <div className="hero-portrait-image">
+                  <img src="/taseel.jpg" alt="Taseel Anwar, web developer and automation specialist" width="600" height="750" fetchPriority="high" />
                 </div>
-
-                {/* Profile highlights */}
-                <div className="dh-profile-highlights" aria-label="Profile highlights">
-                <div className="dh-profile-chip dh-chip-projects">
-                  <div className="dh-profile-chip-icon">🏆</div>
-                  <div className="dh-profile-chip-label">
-                    <strong>10+ Projects</strong>
-                    <span>Delivered globally</span>
-                  </div>
-                </div>
-
-                <div className="dh-profile-chip dh-chip-rating">
-                  <div className="dh-profile-chip-icon">⭐</div>
-                  <div className="dh-profile-chip-label">
-                    <strong>4.9 / 5.0</strong>
-                    <span>Upwork rating</span>
-                  </div>
-                </div>
-
-                <div className="dh-profile-chip dh-chip-stack">
-                  <div className="dh-profile-chip-icon">⚡</div>
-                  <div className="dh-profile-chip-label">
-                    <strong>5 Stacks</strong>
-                    <span>Visual tools and custom code</span>
-                  </div>
-                </div>
-                </div>
-              </div>
+                <figcaption>
+                  <span className="hero-portrait-name">Taseel Anwar</span>
+                  <span className="hero-portrait-role">Web development &amp; automation</span>
+                </figcaption>
+              </figure>
             </div>
           </div>
         </div>
