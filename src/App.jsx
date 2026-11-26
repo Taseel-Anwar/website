@@ -1571,79 +1571,58 @@ function PortfolioPage() {
 }
 
 function AboutPage() {
+  const capabilities = [
+    { number: '01', title: 'Products people can use', description: 'From a first MVP to a customer portal, I build around the people using your product and the jobs they need to get done.', tools: ['Bubble', 'Webflow', 'React', 'Django'], Icon: FiLayers },
+    { number: '02', title: 'Workflows that connect', description: 'I connect your apps and data so your team can spend less time moving information and more time using it.', tools: ['n8n', 'Zapier', 'APIs', 'AI agents'], Icon: FiZap },
+    { number: '03', title: 'Data you can act on', description: 'I turn business data into useful dashboards and reporting, with AI features where they make a practical difference.', tools: ['Power BI', 'Tableau', 'BigQuery', 'Python'], Icon: TbBrandGoogleBigQuery }
+  ];
+  const process = [
+    { title: 'Understand the problem', text: 'We talk through your goals, your users, and what is getting in the way. A clear brief comes before a tool choice.' },
+    { title: 'Choose a practical approach', text: 'I explain the options and tradeoffs, then shape a scope that fits your budget and priorities.' },
+    { title: 'Build with you in the loop', text: 'You see progress, share feedback, and understand the decisions as the work takes shape.' },
+    { title: 'Make the next step clear', text: 'We review what has been built and discuss how to use it, maintain it, and improve it over time.' }
+  ];
   return (
-    <main>
-      <PageHero
-        label="About Me"
-        title="Meet Taseel Anwar, developer and automation specialist"
-        subtitle="Based in Lahore, I work with founders and businesses worldwide to turn ideas into useful digital products."
-      />
-      <section className="about-mission">
-        <div className="container">
-          <div className="mission-inner">
-            <div className="mission-quote">
-              <blockquote>
-                I help businesses turn ideas into working software. Each project starts with a clear understanding of the problem, then moves forward with tools that fit the people who will use it.
-              </blockquote>
-              <cite>Taseel Anwar, Lahore</cite>
-            </div>
-            <div className="mission-pillars">
-              {aboutPillars.map((pillar) => (
-                <div key={pillar.number} className="pillar">
-                  <div className="pillar-num">{pillar.number}</div>
-                  <div>
-                    <h3>{pillar.title}</h3>
-                    <p>{pillar.description}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
+    <main className="about-page">
+      <section className="ab-hero ab-wrap" aria-labelledby="about-title">
+        <div className="ab-hero-copy">
+          <p className="ab-eyebrow">A little about me</p>
+          <h1 id="about-title">The person<br />behind <span>the build.</span></h1>
+          <p className="ab-intro">I'm Taseel Anwar, a web developer and automation specialist based in Lahore.</p>
+          <p className="ab-description">I help founders and businesses turn ideas into useful software. That might mean a Bubble application, a custom web product, or an automation that gives your team time back.</p>
+          <div className="ab-actions">
+            <Link to="/contact" className="ab-button">Let's talk <span aria-hidden="true">↗</span></Link>
+            <Link to="/portfolio" className="ab-text-link">Explore my work <span aria-hidden="true">→</span></Link>
           </div>
+          <div className="ab-location"><FiMapPin aria-hidden="true" /> Lahore, Pakistan <span aria-hidden="true">·</span> Working worldwide</div>
+        </div>
+        <figure className="ab-portrait">
+          <div className="ab-photo-frame"><img src="/taseel.jpg" alt="Taseel Anwar, web developer and automation specialist" width="600" height="750" fetchPriority="high" /></div>
+          <figcaption><span>Taseel Anwar</span><span>Developer. Problem solver.</span></figcaption>
+          <span className="ab-photo-label" aria-hidden="true">A person behind every project.</span>
+        </figure>
+      </section>
+
+      <section className="ab-story" aria-labelledby="about-approach">
+        <div className="ab-wrap ab-story-grid">
+          <div><p className="ab-eyebrow">My approach</p><h2 id="about-approach">Start with the problem.<br /><span>Build what matters.</span></h2></div>
+          <div className="ab-story-copy"><p>Good software should make something easier. A customer finds what they need. A team stops repeating a task. A founder gets an idea into people's hands.</p><p>I work across visual development, custom code, automation, and data. That gives us room to choose an approach that fits your project, rather than forcing your project into one tool.</p><Link to="/services" className="ab-text-link">See how I can help <span aria-hidden="true">↗</span></Link></div>
         </div>
       </section>
-      <section className="difference-section">
-        <div className="container">
-          <SectionLabel>What Makes Me Different</SectionLabel>
-          <h2 className="section-title">I speak every layer of the modern stack.</h2>
-          <div className="stack-visual">
-            {stackLayers.map((layer, index) => (
-              <div key={layer.label} className="stack-layer">
-                <div className="stack-label">{layer.label}</div>
-                <div className="stack-tools">{layer.tools}</div>
-              </div>
-            ))}
-          </div>
-          <p className="stack-caption">
-            I work across interfaces, applications, automation, and data. That breadth helps me choose a suitable approach for each project.
-          </p>
-        </div>
+
+      <section className="ab-expertise ab-wrap" aria-labelledby="about-expertise">
+        <div className="ab-section-head"><div><p className="ab-eyebrow">What I bring to the table</p><h2 id="about-expertise">One project.<br />The right mix of skills.</h2></div><p>Connected thinking across your product, your processes, and your data.</p></div>
+        <div className="ab-capabilities">{capabilities.map(({ number, title, description, tools, Icon }) => <article className="ab-capability" key={number}>
+          <div className="ab-capability-top"><Icon aria-hidden="true" /><span>{number}</span></div><h3>{title}</h3><p>{description}</p><ul className="ab-tools" aria-label={`${title} tools`}>{tools.map(tool => <li key={tool}>{tool}</li>)}</ul>
+        </article>)}</div>
       </section>
-      <section className="values-section">
-        <div className="container">
-          <SectionLabel>My Values</SectionLabel>
-          <h2 className="section-title">How I work</h2>
-          <div className="values-grid">
-            {valueCards.map((card) => (
-              <div key={card.title} className="value-card">
-                <div className="value-icon">{card.icon}</div>
-                <h3>{card.title}</h3>
-                <p>{card.description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
+
+      <section className="ab-process ab-wrap" aria-labelledby="about-process">
+        <div className="ab-process-intro"><p className="ab-eyebrow">Working together</p><h2 id="about-process">Clear steps.<br /><span>Open communication.</span></h2><p>You should know where your project stands and what happens next.</p></div>
+        <ol className="ab-steps">{process.map((step, i) => <li key={step.title}><span className="ab-step-number" aria-hidden="true">0{i + 1}</span><div><h3>{step.title}</h3><p>{step.text}</p></div></li>)}</ol>
       </section>
-      <section className="cta-banner">
-        <div className="container">
-          <div className="cta-inner">
-            <h2>Let's discuss your project.</h2>
-            <p>Tell me what you want to build or improve, and we can discuss the next step.</p>
-            <Link to="/contact" className="btn-primary btn-lg">
-              Let's Connect →
-            </Link>
-          </div>
-        </div>
-      </section>
+
+      <section className="ab-cta ab-wrap" aria-labelledby="about-contact"><div><p className="ab-eyebrow">Your next project</p><h2 id="about-contact">What would you<br />like to make easier?</h2><p>Tell me what you are working on. We can figure out the next step together.</p></div><Link to="/contact" className="ab-button">Discuss your project <span aria-hidden="true">↗</span></Link></section>
     </main>
   );
 }
