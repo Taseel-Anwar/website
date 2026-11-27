@@ -1428,37 +1428,72 @@ const serviceBrandColors = {
   'google-bigquery': '#4285F4', r: '#276DC3'
 };
 function ServiceToolCard({ tool }) {
-  return <article className="svc-tool">
-    <div className="svc-tool-brands">{serviceToolBrands[tool.name].map(([name, slug]) => {
-      const Icon = slug === 'r' ? SiR : techIconMap[slug];
-      const image = slug === 'bubble' ? 'https://cdn.worldvectorlogo.com/logos/bubble-io.svg'
-        : slug === 'base44' ? '/brands/services/base44.png'
-        : ['retool', 'n8n', 'cursor', 'lovable'].includes(slug) ? `/brands/services/${slug}.svg` : null;
-      return <div className="svc-tool-brand" key={slug}>
-        <span className="svc-tool-logo" style={{ color: serviceBrandColors[slug] || '#17171b' }}>
-          {image ? <img src={image} alt="" width="28" height="28" loading="lazy" /> : <Icon aria-hidden="true" />}
-        </span><span>{name}</span>
-      </div>;
-    })}</div>
-    <h3>{tool.name}</h3><p>{serviceToolDescriptions[tool.name]}</p>
-  </article>;
+  return (
+    <article className="svc-tool">
+      <div className="svc-tool-header">
+        <div className="svc-tool-brands">
+          {serviceToolBrands[tool.name].map(([name, slug]) => {
+            const Icon = slug === 'r' ? SiR : techIconMap[slug];
+            const image = slug === 'bubble' ? 'https://cdn.worldvectorlogo.com/logos/bubble-io.svg'
+              : slug === 'base44' ? '/brands/services/base44.png'
+              : ['retool', 'n8n', 'cursor', 'lovable'].includes(slug) ? `/brands/services/${slug}.svg` : null;
+            return (
+              <span className="svc-tool-logo" key={slug} title={name} style={{ color: serviceBrandColors[slug] || '#17171b' }}>
+                {image ? <img src={image} alt={name} width="24" height="24" loading="lazy" /> : <Icon role="img" aria-label={name} />}
+              </span>
+            );
+          })}
+        </div>
+        <h3>{tool.name}</h3>
+      </div>
+      <p>{serviceToolDescriptions[tool.name]}</p>
+    </article>
+  );
 }
 
 function ServicesPage() {
   const titles = ['From idea to working product', 'Give repetitive work a better system', 'Software built for the way you work', 'Make your data useful'];
-  const icons = [FiLayers, FiZap, BsCursorText, TbBrandGoogleBigQuery];
-  return <main className="svc">
-    <section className="svc-hero svc-wrap">
-      <p className="svc-eyebrow">Services / Taseel Anwar</p>
-      <div className="svc-intro"><h1>Web development and<br /><span>automation services.</span></h1><div><p>I build web applications, automate workflows, and create data tools for founders and businesses.</p><Link className="svc-button" to="/contact">Let's talk about your project <span>↗</span></Link></div></div>
-      <nav className="svc-index" aria-label="Service categories">{servicesSections.map((section,i)=><a href={`#${section.id}`} key={section.id}><span>0{i+1}</span>{section.label}<span>↓</span></a>)}</nav>
-    </section>
-    <div className="svc-wrap">{servicesSections.map((section,i)=>{const Icon=icons[i];return <section className="svc-section" id={section.id} key={section.id}>
-      <header className="svc-heading"><span className="svc-num">0{i+1}</span><div><p className="svc-eyebrow">{section.label}</p><h2>{titles[i]}</h2><p className="svc-summary">{section.description}</p><Link to="/contact" className="svc-link">Discuss this service ↗</Link></div><Icon className="svc-category-icon" aria-hidden="true" /></header>
-      <div className="svc-tools">{section.tools.map(tool=><ServiceToolCard tool={tool} key={tool.name} />)}</div>
-    </section>})}</div>
-    <section className="svc-contact"><div className="svc-wrap"><p className="svc-eyebrow">Have a project in mind?</p><h2>Let's find the right<br />way to build it.</h2><Link to="/contact" className="svc-button">Tell me what you're working on <span>↗</span></Link></div></section>
-  </main>;
+  return (
+    <main className="svc">
+      <section className="svc-hero svc-wrap" aria-labelledby="services-title">
+        <p className="svc-eyebrow">Services / Taseel Anwar</p>
+        <div className="svc-intro">
+          <h1 id="services-title">Web development and automation services</h1>
+          <div className="svc-intro-copy">
+            <p>I build web applications, automate workflows, and create data tools for founders and businesses.</p>
+            <Link className="svc-button" to="/contact">Discuss your project <span aria-hidden="true">↗</span></Link>
+          </div>
+        </div>
+        <nav className="svc-index" aria-label="Service categories">
+          {servicesSections.map((section, i) => (
+            <a href={`#${section.id}`} key={section.id}><span className="svc-index-number" aria-hidden="true">0{i + 1}</span>{section.label}<span aria-hidden="true">↓</span></a>
+          ))}
+        </nav>
+      </section>
+      <div className="svc-wrap">
+        {servicesSections.map((section, i) => (
+          <section className="svc-section" id={section.id} key={section.id} aria-labelledby={`${section.id}-title`}>
+            <header className="svc-heading">
+              <span className="svc-num" aria-hidden="true">0{i + 1}</span>
+              <div>
+                <p className="svc-eyebrow">{section.label}</p>
+                <h2 id={`${section.id}-title`}>{titles[i]}</h2>
+                <p className="svc-summary">{section.description}</p>
+                <Link to="/contact" className="svc-link">Discuss this service <span aria-hidden="true">↗</span></Link>
+              </div>
+            </header>
+            <div className="svc-tools">{section.tools.map(tool => <ServiceToolCard tool={tool} key={tool.name} />)}</div>
+          </section>
+        ))}
+      </div>
+      <section className="svc-contact" aria-labelledby="services-contact-title">
+        <div className="svc-wrap">
+          <div><p className="svc-eyebrow">Have a project in mind?</p><h2 id="services-contact-title">Let's find the right way to build it</h2></div>
+          <Link to="/contact" className="svc-button">Tell me what you're working on <span aria-hidden="true">↗</span></Link>
+        </div>
+      </section>
+    </main>
+  );
 }
 
 function PortfolioItem({ item, reverse }) {
